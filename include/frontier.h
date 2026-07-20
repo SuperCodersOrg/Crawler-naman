@@ -2,7 +2,7 @@
 #define FRONTIER_H
 
 #include <string>
-#include "queue.h"
+#include "../../CodeQuotient/include/queue.h"
 
 struct URLDepth
 {

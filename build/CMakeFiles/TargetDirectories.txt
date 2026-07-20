@@ -1,3 +1,0 @@
-/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles/crawler.dir
-/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles/rebuild_cache.dir

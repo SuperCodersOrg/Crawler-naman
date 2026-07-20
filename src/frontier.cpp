@@ -1,4 +1,5 @@
 #include "frontier.h"
+#include "../../CodeQuotient/include/queue.h"
 
 Frontier::Frontier()
 {

@@ -1,20 +1,29 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.20)
+project(Fetcher)
 
-project(Crawler)
-
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(CURL REQUIRED)
 
-add_executable(crawler
-    main.cpp
+include_directories(include)
+
+add_library(fetcher
     src/fetcher.cpp
     src/frontier.cpp
+    src/seenStore.cpp
+    ../../CodeQuotient/src/hashmap.tpp
+    ../../CodeQuotient/src/queue.tpp
 )
 
-target_include_directories(crawler PRIVATE
-    include
-    external/CollectionLibrary/include
+target_link_libraries(fetcher
+    CURL::libcurl
 )
 
-target_link_libraries(crawler PRIVATE CURL::libcurl)
+add_executable(main
+    main.cpp
+)
+
+target_link_libraries(testFetcher
+    fetcher
+)
