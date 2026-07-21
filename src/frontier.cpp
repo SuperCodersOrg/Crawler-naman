@@ -44,7 +44,7 @@ bool Frontier::empty() const
     return queue.isEmpty();
 }
 
-int Frontier::size() const
+int Frontier::size()
 {
     return queue.size();
 }

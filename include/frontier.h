@@ -30,7 +30,7 @@ public:
 
     bool empty() const;
 
-    int size() const;
+    int size();
 };
 
 #endif
