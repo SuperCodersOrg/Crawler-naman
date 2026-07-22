@@ -54,46 +54,50 @@ std::string URLNormalizer::resolveRelativeURL(const std::string& url,const std::
     return baseUrl.substr(0, lastSlash + 1) + url;
 }
 
-std::string URLNormalizer::normalizePath(const std::string& path) const {
-    std::string result;
-    int i = 0;
-    while (i < static_cast<int>(path.length())) {
+std::string URLNormalizer::normalizePath(const std::string& path) const
+{
+    if (path.empty())
+        return "/";
 
+    bool hadTrailingSlash =
+        (path.length() > 1 && path.back() == '/');
+
+    std::string result;
+    size_t i = 0;
+
+    while (i < path.length())
+    {
         // Skip duplicate '/'
-        while (i < static_cast<int>(path.length()) &&
-               path[i] == '/')
+        while (i < path.length() && path[i] == '/')
             i++;
 
         std::string token;
 
-        while (i < static_cast<int>(path.length()) &&
-               path[i] != '/') {
-
+        while (i < path.length() && path[i] != '/')
+        {
             token += path[i];
             i++;
         }
 
+        // Ignore "."
         if (token.empty() || token == ".")
             continue;
 
+        // Handle ".."
         if (token == "..")
         {
             if (!result.empty())
             {
-                if (result.back() == '/')
-                    result.pop_back();
+                // Remove last directory
+                size_t lastSlash = result.find_last_of('/');
 
-                while (!result.empty() &&
-                    result.back() != '/')
+                if (lastSlash == std::string::npos)
                 {
-                    result.pop_back();
+                    result.clear();
                 }
-
-                // Remove the remaining '/'
-                if (!result.empty() &&
-                    result.back() == '/')
+                else
                 {
-                    result.pop_back();
+                    result.erase(lastSlash);
                 }
             }
 
@@ -105,7 +109,14 @@ std::string URLNormalizer::normalizePath(const std::string& path) const {
     }
 
     if (result.empty())
-        return "/";
+        result = "/";
+
+    // Preserve trailing '/'
+    if (hadTrailingSlash &&
+        result.back() != '/')
+    {
+        result += '/';
+    }
 
     return result;
 }

@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/main.cpp" "CMakeFiles/crawler.dir/main.cpp.o" "gcc" "CMakeFiles/crawler.dir/main.cpp.o.d"
+  "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/crawler.cpp" "CMakeFiles/crawler.dir/src/crawler.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/crawler.cpp.o.d"
   "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/fetcher.cpp" "CMakeFiles/crawler.dir/src/fetcher.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/fetcher.cpp.o.d"
   "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/frontier.cpp" "CMakeFiles/crawler.dir/src/frontier.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/frontier.cpp.o.d"
   "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/pageStore.cpp" "CMakeFiles/crawler.dir/src/pageStore.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/pageStore.cpp.o.d"

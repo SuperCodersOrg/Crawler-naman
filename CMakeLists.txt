@@ -15,6 +15,7 @@ add_executable(crawler
     src/pageStore.cpp
     src/seenStore.cpp
     src/urlNormalizer.cpp
+    src/crawler.cpp
 )
 
 target_include_directories(crawler PRIVATE

@@ -153,6 +153,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/crawler.o: src/crawler.cpp.o
+.PHONY : src/crawler.o
+
+# target to build an object file
+src/crawler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/crawler.cpp.o
+.PHONY : src/crawler.cpp.o
+
+src/crawler.i: src/crawler.cpp.i
+.PHONY : src/crawler.i
+
+# target to preprocess a source file
+src/crawler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/crawler.cpp.i
+.PHONY : src/crawler.cpp.i
+
+src/crawler.s: src/crawler.cpp.s
+.PHONY : src/crawler.s
+
+# target to generate assembly for a file
+src/crawler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/crawler.cpp.s
+.PHONY : src/crawler.cpp.s
+
 src/fetcher.o: src/fetcher.cpp.o
 .PHONY : src/fetcher.o
 
@@ -285,6 +309,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/crawler.o"
+	@echo "... src/crawler.i"
+	@echo "... src/crawler.s"
 	@echo "... src/fetcher.o"
 	@echo "... src/fetcher.i"
 	@echo "... src/fetcher.s"

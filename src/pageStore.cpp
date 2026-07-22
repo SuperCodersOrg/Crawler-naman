@@ -114,6 +114,7 @@ std::string PageStorage::getPage(const std::string& url)
 
         return html;
     }
+    return "";
 }
 
 void PageStorage::storePage(const std::string& url,const std::string& html,int depth)

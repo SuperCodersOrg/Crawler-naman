@@ -161,4 +161,61 @@ CMakeFiles/crawler.dir/main.cpp.o: \
  /usr/include/c++/15/bits/basic_ios.tcc \
  /usr/include/c++/15/bits/ostream.tcc /usr/include/c++/15/istream \
  /usr/include/c++/15/bits/istream.tcc \
- /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/pageStore.h
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/crawler.h \
+ /usr/include/c++/15/vector /usr/include/c++/15/bits/stl_uninitialized.h \
+ /usr/include/c++/15/bits/stl_vector.h \
+ /usr/include/c++/15/bits/stl_bvector.h \
+ /usr/include/c++/15/bits/vector.tcc \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/frontier.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/../../CodeQuotient/include/queue.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/../../CodeQuotient/include/linkedList.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/../CodeQuotient/src/linkedList.tpp \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/../CodeQuotient/include/linkedList.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/../CodeQuotient/src/queue.tpp \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/../CodeQuotient/include/queue.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/seenStore.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/../../CodeQuotient/include/hashmap.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/../../CodeQuotient/include/dynamicArray.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/../CodeQuotient/src/dynamicArray.tpp \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/../CodeQuotient/include/dynamicArray.h \
+ /usr/include/c++/15/cstring /usr/include/string.h /usr/include/strings.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/../CodeQuotient/src/hashmap.tpp \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/../CodeQuotient/include/hashMap.h \
+ /usr/include/c++/15/cstdint \
+ /usr/lib/gcc/x86_64-linux-gnu/15/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
+ /usr/include/c++/15/utility /usr/include/c++/15/bits/stl_relops.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/pageStore.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/fetcher.h \
+ /usr/include/x86_64-linux-gnu/curl/curl.h \
+ /usr/include/x86_64-linux-gnu/curl/curlver.h \
+ /usr/include/x86_64-linux-gnu/curl/system.h \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
+ /usr/lib/gcc/x86_64-linux-gnu/15/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/15/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h \
+ /usr/include/x86_64-linux-gnu/curl/easy.h \
+ /usr/include/x86_64-linux-gnu/curl/multi.h \
+ /usr/include/x86_64-linux-gnu/curl/curl.h \
+ /usr/include/x86_64-linux-gnu/curl/urlapi.h \
+ /usr/include/x86_64-linux-gnu/curl/options.h \
+ /usr/include/x86_64-linux-gnu/curl/header.h \
+ /usr/include/x86_64-linux-gnu/curl/websockets.h \
+ /usr/include/x86_64-linux-gnu/curl/mprintf.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/urlNormalizer.h
