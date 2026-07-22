@@ -2,21 +2,26 @@
 #define PAGE_STORAGE_H
 
 #include <string>
+#include <cstdint>
+#include <ios>
 
-class PageStorage {
+#include "../../CodeQuotient/include/hashmap.h"
+
+class PageStorage
+{
 private:
     std::string filePath;
+    HashMap<std::string, std::streampos> pageIndex;
+
     int cachedCount;
     bool initialized;
 
-    void initializeCount();
+    void buildIndex();
 
 public:
     PageStorage(const std::string& path = "storage/pages.txt");
 
-    void storePage(const std::string& url,
-                   const std::string& html,
-                   int depth);
+    void storePage(const std::string& url,const std::string& html,int depth);
 
     std::string getPage(const std::string& url);
 

@@ -218,4 +218,5 @@ CMakeFiles/crawler.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/curl/header.h \
  /usr/include/x86_64-linux-gnu/curl/websockets.h \
  /usr/include/x86_64-linux-gnu/curl/mprintf.h \
- /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/urlNormalizer.h
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/urlNormalizer.h \
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/pageStore.h

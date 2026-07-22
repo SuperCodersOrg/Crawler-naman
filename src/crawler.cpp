@@ -1,7 +1,10 @@
 #include "crawler.h"
 
+#include <thread>
+#include <chrono>
 #include <string>
 #include <iostream>
+#include <cctype>
 
 Crawler::Crawler()
     : pageStorage("../storage/pages.txt"),
@@ -9,29 +12,27 @@ Crawler::Crawler()
 {
 }
 
-bool Crawler::shouldVisit(const std::string& url,int depth,int maxDepth)
+bool Crawler::shouldVisit(const std::string& url,
+                          int depth,
+                          int maxDepth)
 {
     if (url.empty())
-    {
         return false;
-    }
 
     if (depth > maxDepth)
-    {
         return false;
-    }
 
     if (seenStore.contains(url))
-    {
         return false;
-    }
 
     return true;
 }
 
-void Crawler::extractLinks(const std::string& html,const std::string& baseURL,int currentDepth,int maxDepth)
+void Crawler::extractLinks(const std::string& html,
+                           const std::string& baseURL,
+                           int currentDepth,
+                           int maxDepth)
 {
-    // Don't enqueue links beyond max depth
     if (currentDepth >= maxDepth)
         return;
 
@@ -39,13 +40,11 @@ void Crawler::extractLinks(const std::string& html,const std::string& baseURL,in
 
     while (true)
     {
-        // Find the next <a tag
         pos = html.find("<a", pos);
 
         if (pos == std::string::npos)
             break;
 
-        // Find href attribute within this tag
         size_t hrefPos = html.find("href", pos);
 
         if (hrefPos == std::string::npos)
@@ -62,7 +61,6 @@ void Crawler::extractLinks(const std::string& html,const std::string& baseURL,in
             continue;
         }
 
-        // Find '='
         size_t equalPos = html.find('=', hrefPos);
 
         if (equalPos == std::string::npos)
@@ -73,7 +71,6 @@ void Crawler::extractLinks(const std::string& html,const std::string& baseURL,in
 
         equalPos++;
 
-        // Skip spaces
         while (equalPos < html.length() &&
                std::isspace(static_cast<unsigned char>(html[equalPos])))
         {
@@ -85,7 +82,6 @@ void Crawler::extractLinks(const std::string& html,const std::string& baseURL,in
 
         char quote = html[equalPos];
 
-        // Handle only quoted href values
         if (quote != '"' && quote != '\'')
         {
             pos = equalPos;
@@ -107,11 +103,9 @@ void Crawler::extractLinks(const std::string& html,const std::string& baseURL,in
         if (link.empty())
             continue;
 
-        // Ignore fragments
         if (link[0] == '#')
             continue;
 
-        // Ignore unsupported schemes
         if (link.rfind("javascript:", 0) == 0)
             continue;
 
@@ -121,16 +115,15 @@ void Crawler::extractLinks(const std::string& html,const std::string& baseURL,in
         if (link.rfind("tel:", 0) == 0)
             continue;
 
-        // Normalize the URL
         std::string normalized =
-            normalizer.normalize(link,baseURL);
+            normalizer.normalize(link, baseURL);
 
-        if (normalized.empty())
+        if (!shouldVisit(normalized,
+                         currentDepth + 1,
+                         maxDepth))
+        {
             continue;
-
-        // Skip duplicates
-        if (seenStore.contains(normalized))
-            continue;
+        }
 
         frontier.push(
         {
@@ -139,12 +132,15 @@ void Crawler::extractLinks(const std::string& html,const std::string& baseURL,in
         });
     }
 }
-void Crawler::crawl(const std::string& seedURL,int maxDepth,int maxPages)
+
+void Crawler::crawl(const std::string& seedURL,
+                    int maxDepth,
+                    int maxPages)
 {
     pageCount = 0;
 
-    // Normalize the seed URL
-    std::string normalizedSeed = normalizer.normalize(seedURL);
+    std::string normalizedSeed =
+        normalizer.normalize(seedURL);
 
     if (normalizedSeed.empty())
     {
@@ -158,32 +154,38 @@ void Crawler::crawl(const std::string& seedURL,int maxDepth,int maxPages)
     {
         URLDepth current = frontier.pop();
 
-        // Skip already visited URLs
-        if (seenStore.contains(current.url))
-        {
+        // Check maximum depth
+        if (current.depth > maxDepth)
             continue;
-        }
 
-        // Mark as visited
-        seenStore.insert(current.url);
+        // Already fetched?
+        if (seenStore.contains(current.url))
+            continue;
 
-        // Fetch page
         std::string html = fetcher.fetch(current.url);
 
         if (html.empty())
-        {
             continue;
-        }
 
-        // Store page
-        pageStorage.storePage(current.url,html,current.depth);
+        // Mark as fetched
+        seenStore.insert(current.url);
+
+        pageStorage.storePage(current.url,
+                            html,
+                            current.depth);
 
         pageCount++;
 
-        // Extract and enqueue new links
-        extractLinks(html, current.url,current.depth,maxDepth);
+        extractLinks(html,
+                    current.url,
+                    current.depth,
+                    maxDepth);
+
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 
     std::cout << "Crawling completed.\n";
-    std::cout << "Pages Crawled: " << pageCount << '\n';
+    std::cout << "Pages Crawled: "
+              << pageCount
+              << '\n';
 }
