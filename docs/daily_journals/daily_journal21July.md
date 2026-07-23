@@ -32,27 +32,40 @@
 
 ## Section 2 — Failed Attempts
 
-### Attempt 1
+### Attempt 1 — Integrating the Complete Crawler Workflow
 
-Initially verified components only through isolated unit tests.
+Initially, all crawler components had been tested individually, so I expected that simply connecting them together would result in a fully functional crawler. However, after integrating the modules, several logical issues became apparent because the interaction between components was different from their isolated behavior.
 
-After integrating them into the crawler workflow, additional end-to-end testing was performed to validate the complete execution pipeline.
+During testing, it became clear that the crawler needed to follow a strict sequence of operations. URLs had to be normalized before checking for duplicates, pages should only be marked as visited after a successful download, and downloaded pages had to be stored before extracting additional links. Performing these operations in an incorrect order either caused duplicate processing or prevented failed pages from being retried.
 
----
-
-### Attempt 2
-
-Initially assumed that connecting the components would be sufficient for correct execution.
-
-Multiple crawler runs revealed the importance of validating data flow between each stage, ensuring URLs were normalized, checked, fetched, and stored in the correct sequence.
+After analyzing the crawler workflow, the execution order was reorganized so that every URL is first normalized, then checked against the `SeenStore`, fetched using the `Fetcher`, stored in the `PageStorage`, and finally processed for outgoing links. This resulted in a consistent and reliable crawling pipeline.
 
 ---
 
-### Attempt 3
+### Attempt 2 — Optimizing Page Storage
 
-Initially retained temporary debugging statements during integration.
+The initial implementation of the `PageStorage` component searched the storage file sequentially whenever `getPage()` or `hasPage()` was called. Although this implementation worked correctly for a small number of pages, testing revealed that retrieval became increasingly inefficient as the storage file grew because every lookup required scanning the entire file.
 
-After successful testing, unnecessary debugging code was removed and the project structure was cleaned to improve readability and maintainability.
+To improve performance, the storage mechanism was redesigned to build an in-memory index during initialization. The `buildIndex()` function scans the storage file once when the program starts and stores a mapping between each URL and its corresponding file offset. Additional data structures were introduced to maintain the relationship between page IDs and URLs.
+
+After this redesign:
+
+- `getPage()` directly seeks to the stored file offset instead of scanning the file.
+- `hasPage()` performs a hash table lookup instead of reading the storage file.
+- `pageCount()` returns the cached value maintained during indexing.
+- `getURLByID()` retrieves URLs directly from the stored ID mapping.
+
+This significantly improved retrieval performance while keeping the HTML content stored persistently on disk.
+
+---
+
+### Attempt 3 — Validating Integration Through Repeated Testing
+
+Initially, I assumed that if the crawler completed without crashing, the integration was correct. However, repeated crawler executions revealed several logical issues that were not immediately obvious.
+
+During testing, I observed situations where the storage file contained more pages than expected because previous crawl data remained in the file. Since the Page Storage uses an append-only design, running the crawler multiple times without clearing the storage naturally increased the number of stored records. I also verified that duplicate URLs were correctly filtered by the `SeenStore`, that failed downloads were not incorrectly marked as visited, and that the crawler respected both the maximum depth and maximum page limits.
+
+These repeated integration tests helped distinguish actual implementation bugs from expected behavior, verified that all components interacted correctly, and ensured that the final crawler behaved consistently under multiple execution scenarios.
 
 ---
 

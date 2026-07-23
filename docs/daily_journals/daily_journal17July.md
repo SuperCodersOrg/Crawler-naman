@@ -28,32 +28,31 @@
 
 **Observation:** Adding representative hexadecimal addresses only for dynamically allocated nodes and important pointers improves readability without unnecessarily increasing the complexity of the diagrams.
 
----
-
 ## Section 2 — Failed Attempts
 
-### Attempt 1
+### Attempt 1 — Frontier Memory Layout
 
-Initially explored different ways of representing the Frontier memory layout.
+Initially, I explored multiple ways of representing the Frontier's memory layout in the memory diagram. One approach focused only on the logical structure of the queue, showing nodes connected in sequence without distinguishing where the objects were actually stored in memory. Another approach displayed all objects together without separating stack and heap memory.
 
-After comparing multiple layouts, the final representation was chosen to clearly distinguish between stack and heap memory while showing the relationship between the Frontier object and dynamically allocated nodes.
-
----
-
-### Attempt 2
-
-Considered representing empty buckets as unused memory locations.
-
-After reviewing the overall bucket organization, representing every bucket as a valid LinkedList object was found to be more consistent with the implementation and easier to understand.
+After comparing these alternatives, I realized that these diagrams did not accurately represent the implementation. In the actual program, the `Frontier` object itself is allocated on the stack, while every node of the doubly linked list is dynamically allocated on the heap. Since the relationship between these memory regions is an important part of understanding the implementation, the final diagram was redesigned to clearly separate stack memory from heap memory and show how the `head` and `tail` pointers reference dynamically allocated nodes.
 
 ---
 
-### Attempt 3
+### Attempt 2 — Representing HashMap Buckets
 
-Initially experimented with displaying memory addresses for every object and data member.
+While documenting the SeenStore, I initially assumed that each bucket in the HashMap would either contain a pointer to a linked list or remain empty (NULL) until an element was inserted. Based on this assumption, the first memory diagram represented empty buckets as unused memory locations.
 
-Although this produced a more detailed diagram, it also reduced readability. The final design includes addresses only for dynamically allocated nodes and the important pointer fields, providing a better balance between realism and clarity.
+After reviewing the implementation more carefully, I found that this assumption was incorrect. The HashMap actually stores an array of `LinkedList` objects, meaning every bucket already exists as a valid LinkedList object even when it contains no elements. Only the linked list's internal `head` pointer is `NULL` when the bucket is empty.
 
+Because the original diagram did not accurately represent the implementation, it was redesigned to show every bucket as an existing LinkedList object. This makes the memory organization consistent with the code and easier for future readers to understand.
+
+---
+
+### Attempt 3 — Level of Detail in Memory Diagrams
+
+During the initial design, I attempted to make the memory diagrams as realistic as possible by assigning hexadecimal memory addresses to every object, data member, and variable shown in the diagram. Although this closely resembled an actual memory dump, it resulted in diagrams that were crowded and difficult to read.
+
+After reviewing the diagrams, I concluded that displaying every address added unnecessary visual complexity without improving the explanation of the data structure. Therefore, the final design was simplified by showing representative hexadecimal addresses only for dynamically allocated nodes and the important pointer fields (`head`, `tail`, `next`, and `prev`). This approach maintains the realism of the diagrams while making them significantly easier to understand.
 ---
 
 ## Section 3 — Design Decisions

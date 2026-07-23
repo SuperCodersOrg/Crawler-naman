@@ -32,27 +32,41 @@
 
 ## Section 2 — Failed Attempts
 
-### Attempt 1
+### Attempt 1 — Updating Existing Pages in PageStorage
 
-Initially assumed that updating an existing page in `PageStorage` might unintentionally increase the stored page count.
+Initially, the Page Storage was designed with the assumption that updating an existing webpage would involve locating the previous record in the storage file and replacing its contents directly. Although this approach appeared to avoid duplicate records, it proved difficult to implement efficiently because modifying a record inside a text file can change its size. Any change in record length would shift the positions of all subsequent records, making previously stored file offsets invalid.
 
-After executing multiple update scenarios, the implementation was verified to correctly overwrite the existing record while keeping the page count unchanged.
+During testing, this approach also raised concerns about maintaining the correct page count and preserving the consistency of the storage file after multiple updates.
 
----
-
-### Attempt 2
-
-Initially tested only basic absolute URLs in the `URLNormalizer`.
-
-Additional testing using relative paths, protocol-relative URLs, fragments, duplicate slashes, and unsupported protocols revealed several edge cases that required refinement before the implementation was finalized.
+To simplify the implementation and improve reliability, the design was changed to an append-only approach. Whenever an existing webpage is updated, a new record is appended to the end of the file while the in-memory index is updated to point to the latest version of that page. Since only new URLs increase the page count, duplicate updates no longer affect the total number of stored pages. This approach keeps file offsets valid and makes retrieval significantly more efficient.
 
 ---
 
-### Attempt 3
+### Attempt 2 — Testing URL Normalization
 
-Initially considered testing only the integrated crawler.
+The initial testing of the `URLNormalizer` focused primarily on simple absolute URLs such as `https://example.com`. While these basic cases worked correctly, additional testing with real webpages exposed several URL formats that were not handled properly.
 
-Instead, each component was tested independently using dedicated test programs, making it significantly easier to isolate and debug individual modules.
+The issues encountered included:
+
+- Relative URLs such as `about.html`
+- Root-relative URLs beginning with `/`
+- Protocol-relative URLs beginning with `//`
+- URLs containing duplicate slashes
+- Uppercase schemes and host names
+- Fragment identifiers (`#section`)
+- Unsupported protocols such as `javascript:`, `mailto:`, and `tel:`
+
+Each of these cases required additional normalization logic before the crawler could reliably identify whether two URLs referred to the same webpage. After extending the implementation to handle all these scenarios, the normalized URLs became consistent and duplicate crawling caused by different URL representations was eliminated.
+
+---
+
+### Attempt 3 — Testing Strategy
+
+Initially, I considered testing the crawler only after integrating all of its components. Although this would verify the overall functionality, it would also make debugging significantly more difficult because any failure could originate from multiple interacting modules.
+
+Instead, each component was tested independently using dedicated test programs. The Frontier was verified for correct FIFO behavior, the SeenStore was tested for duplicate detection, the Fetcher was validated by downloading HTML from static webpages, the Page Storage was tested for insertion and retrieval, and the URL Normalizer was exercised using a wide variety of URL formats.
+
+Testing the components individually made it much easier to isolate bugs, verify each module's behavior, and ensure that every component worked correctly before integration into the complete crawler workflow.
 
 ---
 

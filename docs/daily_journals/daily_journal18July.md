@@ -32,27 +32,41 @@
 
 ## Section 2 — Failed Attempts
 
-### Attempt 1
+### Attempt 1 — Designing the Page Store
 
-Initially considered storing downloaded pages entirely in memory for faster access.
+Initially, I considered storing all downloaded webpages entirely in memory using C++ data structures. This approach appeared attractive because retrieving pages would be very fast, and the crawler would not need to perform file I/O during execution.
 
-After evaluating future project requirements, persistent file storage was selected since it provides better compatibility with the Indexer component.
+However, after reviewing the requirements of Project 03, I realized that this design would not be suitable. Once the crawler terminated, all downloaded webpages would be lost, forcing the Indexer to crawl the web again before building the search index. This would unnecessarily increase network traffic and execution time.
 
----
-
-### Attempt 2
-
-Initially attempted to build the project before configuring the required libcurl dependency.
-
-After analyzing the compilation errors, the CMake configuration was updated to correctly locate and link the CURL library.
+To overcome this limitation, the design was changed to use persistent file-based storage. Every downloaded webpage is written to a storage file along with its URL and crawl depth. During program startup, the Page Store scans the storage file once to rebuild its in-memory index (URL to file offset mapping), allowing pages to be retrieved efficiently while keeping the actual HTML content on disk. This approach provides persistence without sacrificing retrieval performance.
 
 ---
 
-### Attempt 3
+### Attempt 2 — Integrating libcurl
 
-Initially attempted to continue development using the Windows build environment.
+The Fetcher component depends on the libcurl library for downloading webpages. Initially, I completed the implementation of the Fetcher before configuring the project to locate and link the CURL library correctly.
 
-After repeated configuration and generator issues, the project was migrated to Ubuntu (WSL), providing a more stable and consistent development environment.
+As a result, the project failed to compile. The compiler reported errors indicating that the required CURL headers and libraries could not be found. Even after installing libcurl, additional linker errors occurred because the library was not properly linked in the CMake configuration.
+
+To resolve these issues, the build configuration was updated by locating the CURL package using CMake's `find_package(CURL REQUIRED)` command and linking the executable with `CURL::libcurl`. Once the dependency was configured correctly, the Fetcher compiled successfully and was able to perform HTTP requests.
+
+---
+
+### Attempt 3 — Windows Build Environment
+
+Initially, development was carried out using the native Windows build environment. During this process, several configuration issues repeatedly interrupted development.
+
+Different CMake generators attempted to use incompatible build tools such as MinGW, NMake, and Visual Studio. Compiler detection frequently failed because the required compiler was either missing from the system PATH or a different compiler installation was being selected than expected. In addition, repository cloning, Git authentication, and file permission issues further complicated the build process.
+
+Some of the errors encountered included:
+
+- CMake failing to detect a valid C or C++ compiler.
+- Generator mismatch errors caused by switching between different build systems.
+- Linker errors while integrating external libraries.
+- Permission denied errors while generating build files inside Windows-managed directories.
+- Git authentication and remote repository configuration problems.
+
+After repeatedly troubleshooting these issues, development was migrated to Ubuntu running under Windows Subsystem for Linux (WSL). The Linux environment provided a more consistent compiler toolchain, package management through `apt`, and improved compatibility with CMake and libcurl. Once the environment was migrated, the project built successfully with significantly fewer configuration issues.
 
 ---
 

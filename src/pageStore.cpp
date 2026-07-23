@@ -34,19 +34,31 @@ void PageStorage::buildIndex()
         if (line != "###PAGE###")
             continue;
 
+        std::string idLine;
+        getline(file, idLine);
+
         std::string urlLine;
         getline(file, urlLine);
 
         std::string depthLine;
         getline(file, depthLine);
 
-        getline(file, line);      // HTML
+        getline(file, line); // HTML
 
+        int id = std::stoi(idLine.substr(3));
         std::string url = urlLine.substr(4);
+
+        while (pageURLs.size() < id)
+        {
+            pageURLs.push_back("");
+        }
+
+        pageURLs[id - 1] = url;
 
         pageIndex.set(url, offset);
 
-        cachedCount++;
+        if (id > cachedCount)
+            cachedCount = id;
 
         while (getline(file, line))
         {
@@ -77,6 +89,26 @@ void PageStorage::storePage(const std::string& url,
 
     bool alreadyExists = pageIndex.exists(url);
 
+    int id;
+
+    if (alreadyExists)
+    {
+        for (int i = 0; i < pageURLs.size(); i++)
+        {
+            if (pageURLs[i] == url)
+            {
+                id = i + 1;
+                break;
+            }
+        }
+    }
+    else
+    {
+        id = cachedCount + 1;
+        cachedCount++;
+        pageURLs.push_back(url);
+    }
+
     std::ofstream output(filePath, std::ios::app);
 
     if (!output.is_open())
@@ -90,6 +122,7 @@ void PageStorage::storePage(const std::string& url,
     pageIndex.set(url, offset);
 
     output << "###PAGE###\n";
+    output << "ID:" << id << '\n';
     output << "URL:" << url << '\n';
     output << "DEPTH:" << depth << '\n';
     output << "HTML\n";
@@ -99,9 +132,6 @@ void PageStorage::storePage(const std::string& url,
         output << '\n';
 
     output << "###ENDHTML###\n";
-
-    if (!alreadyExists)
-        cachedCount++;
 }
 
 std::string PageStorage::getPage(const std::string& url)
@@ -120,10 +150,11 @@ std::string PageStorage::getPage(const std::string& url)
 
     std::string line;
 
-    getline(input, line);   // ###PAGE###
-    getline(input, line);   // URL
-    getline(input, line);   // DEPTH
-    getline(input, line);   // HTML
+    getline(input, line); // ###PAGE###
+    getline(input, line); // ID
+    getline(input, line); // URL
+    getline(input, line); // DEPTH
+    getline(input, line); // HTML
 
     std::string html;
 
@@ -137,4 +168,12 @@ std::string PageStorage::getPage(const std::string& url)
     }
 
     return html;
+}
+
+std::string PageStorage::getURLByID(int id)
+{
+    if (id < 1 || id > pageURLs.size())
+        return "";
+
+    return pageURLs[id - 1];
 }
