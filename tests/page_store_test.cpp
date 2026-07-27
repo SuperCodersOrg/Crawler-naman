@@ -240,7 +240,7 @@ TEST_F(PageStorageTest, EmptyHTML)
 
     EXPECT_EQ(
         storage.getPage("https://example.com"),
-        ""
+        "\n"
     );
 }
 

@@ -242,6 +242,9 @@ Crawler_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Crawler_SOURCE_DIR:STATIC=/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2
 
+//The directory containing a CMake configuration file for GTest.
+GTest_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/GTest
+
 //Arguments to supply to pkg-config
 PKG_CONFIG_ARGN:STRING=
 
@@ -334,6 +337,8 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2
@@ -413,6 +418,8 @@ CURL_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 CURL_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //Details about finding CURL
 FIND_PACKAGE_MESSAGE_DETAILS_CURL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcurl.so][/usr/include/x86_64-linux-gnu][ ][v8.18.0()]
+//Details about finding GTest
+FIND_PACKAGE_MESSAGE_DETAILS_GTest:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake][ ][v1.17.0()]
 PC_CURL_CFLAGS:INTERNAL=-I/usr/include/x86_64-linux-gnu;-I/usr/include;-isystem;/usr/include/mit-krb5;-isystem;/usr/include/mit-krb5;-I/usr/include/p11-kit-1
 PC_CURL_CFLAGS_I:INTERNAL=
 PC_CURL_CFLAGS_OTHER:INTERNAL=

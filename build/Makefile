@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/Co
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -129,6 +139,19 @@ crawler/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/build
 .PHONY : crawler/fast
 
+#=============================================================================
+# Target rules for targets named crawler_tests
+
+# Build rule for target.
+crawler_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 crawler_tests
+.PHONY : crawler_tests
+
+# fast build rule for target.
+crawler_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/build
+.PHONY : crawler_tests/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -159,6 +182,7 @@ src/crawler.o: src/crawler.cpp.o
 # target to build an object file
 src/crawler.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/crawler.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/crawler.cpp.o
 .PHONY : src/crawler.cpp.o
 
 src/crawler.i: src/crawler.cpp.i
@@ -167,6 +191,7 @@ src/crawler.i: src/crawler.cpp.i
 # target to preprocess a source file
 src/crawler.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/crawler.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/crawler.cpp.i
 .PHONY : src/crawler.cpp.i
 
 src/crawler.s: src/crawler.cpp.s
@@ -175,6 +200,7 @@ src/crawler.s: src/crawler.cpp.s
 # target to generate assembly for a file
 src/crawler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/crawler.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/crawler.cpp.s
 .PHONY : src/crawler.cpp.s
 
 src/fetcher.o: src/fetcher.cpp.o
@@ -183,6 +209,7 @@ src/fetcher.o: src/fetcher.cpp.o
 # target to build an object file
 src/fetcher.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/fetcher.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/fetcher.cpp.o
 .PHONY : src/fetcher.cpp.o
 
 src/fetcher.i: src/fetcher.cpp.i
@@ -191,6 +218,7 @@ src/fetcher.i: src/fetcher.cpp.i
 # target to preprocess a source file
 src/fetcher.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/fetcher.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/fetcher.cpp.i
 .PHONY : src/fetcher.cpp.i
 
 src/fetcher.s: src/fetcher.cpp.s
@@ -199,6 +227,7 @@ src/fetcher.s: src/fetcher.cpp.s
 # target to generate assembly for a file
 src/fetcher.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/fetcher.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/fetcher.cpp.s
 .PHONY : src/fetcher.cpp.s
 
 src/frontier.o: src/frontier.cpp.o
@@ -207,6 +236,7 @@ src/frontier.o: src/frontier.cpp.o
 # target to build an object file
 src/frontier.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/frontier.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/frontier.cpp.o
 .PHONY : src/frontier.cpp.o
 
 src/frontier.i: src/frontier.cpp.i
@@ -215,6 +245,7 @@ src/frontier.i: src/frontier.cpp.i
 # target to preprocess a source file
 src/frontier.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/frontier.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/frontier.cpp.i
 .PHONY : src/frontier.cpp.i
 
 src/frontier.s: src/frontier.cpp.s
@@ -223,6 +254,7 @@ src/frontier.s: src/frontier.cpp.s
 # target to generate assembly for a file
 src/frontier.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/frontier.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/frontier.cpp.s
 .PHONY : src/frontier.cpp.s
 
 src/pageStore.o: src/pageStore.cpp.o
@@ -231,6 +263,7 @@ src/pageStore.o: src/pageStore.cpp.o
 # target to build an object file
 src/pageStore.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/pageStore.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/pageStore.cpp.o
 .PHONY : src/pageStore.cpp.o
 
 src/pageStore.i: src/pageStore.cpp.i
@@ -239,6 +272,7 @@ src/pageStore.i: src/pageStore.cpp.i
 # target to preprocess a source file
 src/pageStore.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/pageStore.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/pageStore.cpp.i
 .PHONY : src/pageStore.cpp.i
 
 src/pageStore.s: src/pageStore.cpp.s
@@ -247,6 +281,7 @@ src/pageStore.s: src/pageStore.cpp.s
 # target to generate assembly for a file
 src/pageStore.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/pageStore.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/pageStore.cpp.s
 .PHONY : src/pageStore.cpp.s
 
 src/seenStore.o: src/seenStore.cpp.o
@@ -255,6 +290,7 @@ src/seenStore.o: src/seenStore.cpp.o
 # target to build an object file
 src/seenStore.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/seenStore.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/seenStore.cpp.o
 .PHONY : src/seenStore.cpp.o
 
 src/seenStore.i: src/seenStore.cpp.i
@@ -263,6 +299,7 @@ src/seenStore.i: src/seenStore.cpp.i
 # target to preprocess a source file
 src/seenStore.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/seenStore.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/seenStore.cpp.i
 .PHONY : src/seenStore.cpp.i
 
 src/seenStore.s: src/seenStore.cpp.s
@@ -271,6 +308,7 @@ src/seenStore.s: src/seenStore.cpp.s
 # target to generate assembly for a file
 src/seenStore.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/seenStore.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/seenStore.cpp.s
 .PHONY : src/seenStore.cpp.s
 
 src/urlNormalizer.o: src/urlNormalizer.cpp.o
@@ -279,6 +317,7 @@ src/urlNormalizer.o: src/urlNormalizer.cpp.o
 # target to build an object file
 src/urlNormalizer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/urlNormalizer.cpp.o
 .PHONY : src/urlNormalizer.cpp.o
 
 src/urlNormalizer.i: src/urlNormalizer.cpp.i
@@ -287,6 +326,7 @@ src/urlNormalizer.i: src/urlNormalizer.cpp.i
 # target to preprocess a source file
 src/urlNormalizer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/urlNormalizer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/urlNormalizer.cpp.i
 .PHONY : src/urlNormalizer.cpp.i
 
 src/urlNormalizer.s: src/urlNormalizer.cpp.s
@@ -295,7 +335,152 @@ src/urlNormalizer.s: src/urlNormalizer.cpp.s
 # target to generate assembly for a file
 src/urlNormalizer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/urlNormalizer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/urlNormalizer.cpp.s
 .PHONY : src/urlNormalizer.cpp.s
+
+tests/crawler_test.o: tests/crawler_test.cpp.o
+.PHONY : tests/crawler_test.o
+
+# target to build an object file
+tests/crawler_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/crawler_test.cpp.o
+.PHONY : tests/crawler_test.cpp.o
+
+tests/crawler_test.i: tests/crawler_test.cpp.i
+.PHONY : tests/crawler_test.i
+
+# target to preprocess a source file
+tests/crawler_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/crawler_test.cpp.i
+.PHONY : tests/crawler_test.cpp.i
+
+tests/crawler_test.s: tests/crawler_test.cpp.s
+.PHONY : tests/crawler_test.s
+
+# target to generate assembly for a file
+tests/crawler_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/crawler_test.cpp.s
+.PHONY : tests/crawler_test.cpp.s
+
+tests/fetcher_test.o: tests/fetcher_test.cpp.o
+.PHONY : tests/fetcher_test.o
+
+# target to build an object file
+tests/fetcher_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/fetcher_test.cpp.o
+.PHONY : tests/fetcher_test.cpp.o
+
+tests/fetcher_test.i: tests/fetcher_test.cpp.i
+.PHONY : tests/fetcher_test.i
+
+# target to preprocess a source file
+tests/fetcher_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/fetcher_test.cpp.i
+.PHONY : tests/fetcher_test.cpp.i
+
+tests/fetcher_test.s: tests/fetcher_test.cpp.s
+.PHONY : tests/fetcher_test.s
+
+# target to generate assembly for a file
+tests/fetcher_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/fetcher_test.cpp.s
+.PHONY : tests/fetcher_test.cpp.s
+
+tests/frontier_test.o: tests/frontier_test.cpp.o
+.PHONY : tests/frontier_test.o
+
+# target to build an object file
+tests/frontier_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/frontier_test.cpp.o
+.PHONY : tests/frontier_test.cpp.o
+
+tests/frontier_test.i: tests/frontier_test.cpp.i
+.PHONY : tests/frontier_test.i
+
+# target to preprocess a source file
+tests/frontier_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/frontier_test.cpp.i
+.PHONY : tests/frontier_test.cpp.i
+
+tests/frontier_test.s: tests/frontier_test.cpp.s
+.PHONY : tests/frontier_test.s
+
+# target to generate assembly for a file
+tests/frontier_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/frontier_test.cpp.s
+.PHONY : tests/frontier_test.cpp.s
+
+tests/page_store_test.o: tests/page_store_test.cpp.o
+.PHONY : tests/page_store_test.o
+
+# target to build an object file
+tests/page_store_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/page_store_test.cpp.o
+.PHONY : tests/page_store_test.cpp.o
+
+tests/page_store_test.i: tests/page_store_test.cpp.i
+.PHONY : tests/page_store_test.i
+
+# target to preprocess a source file
+tests/page_store_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/page_store_test.cpp.i
+.PHONY : tests/page_store_test.cpp.i
+
+tests/page_store_test.s: tests/page_store_test.cpp.s
+.PHONY : tests/page_store_test.s
+
+# target to generate assembly for a file
+tests/page_store_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/page_store_test.cpp.s
+.PHONY : tests/page_store_test.cpp.s
+
+tests/seen_store_test.o: tests/seen_store_test.cpp.o
+.PHONY : tests/seen_store_test.o
+
+# target to build an object file
+tests/seen_store_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/seen_store_test.cpp.o
+.PHONY : tests/seen_store_test.cpp.o
+
+tests/seen_store_test.i: tests/seen_store_test.cpp.i
+.PHONY : tests/seen_store_test.i
+
+# target to preprocess a source file
+tests/seen_store_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/seen_store_test.cpp.i
+.PHONY : tests/seen_store_test.cpp.i
+
+tests/seen_store_test.s: tests/seen_store_test.cpp.s
+.PHONY : tests/seen_store_test.s
+
+# target to generate assembly for a file
+tests/seen_store_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/seen_store_test.cpp.s
+.PHONY : tests/seen_store_test.cpp.s
+
+tests/url_normalizer_test.o: tests/url_normalizer_test.cpp.o
+.PHONY : tests/url_normalizer_test.o
+
+# target to build an object file
+tests/url_normalizer_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/url_normalizer_test.cpp.o
+.PHONY : tests/url_normalizer_test.cpp.o
+
+tests/url_normalizer_test.i: tests/url_normalizer_test.cpp.i
+.PHONY : tests/url_normalizer_test.i
+
+# target to preprocess a source file
+tests/url_normalizer_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/url_normalizer_test.cpp.i
+.PHONY : tests/url_normalizer_test.cpp.i
+
+tests/url_normalizer_test.s: tests/url_normalizer_test.cpp.s
+.PHONY : tests/url_normalizer_test.s
+
+# target to generate assembly for a file
+tests/url_normalizer_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/url_normalizer_test.cpp.s
+.PHONY : tests/url_normalizer_test.cpp.s
 
 # Help Target
 help:
@@ -305,7 +490,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... crawler"
+	@echo "... crawler_tests"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -327,6 +514,24 @@ help:
 	@echo "... src/urlNormalizer.o"
 	@echo "... src/urlNormalizer.i"
 	@echo "... src/urlNormalizer.s"
+	@echo "... tests/crawler_test.o"
+	@echo "... tests/crawler_test.i"
+	@echo "... tests/crawler_test.s"
+	@echo "... tests/fetcher_test.o"
+	@echo "... tests/fetcher_test.i"
+	@echo "... tests/fetcher_test.s"
+	@echo "... tests/frontier_test.o"
+	@echo "... tests/frontier_test.i"
+	@echo "... tests/frontier_test.s"
+	@echo "... tests/page_store_test.o"
+	@echo "... tests/page_store_test.i"
+	@echo "... tests/page_store_test.s"
+	@echo "... tests/seen_store_test.o"
+	@echo "... tests/seen_store_test.i"
+	@echo "... tests/seen_store_test.s"
+	@echo "... tests/url_normalizer_test.o"
+	@echo "... tests/url_normalizer_test.i"
+	@echo "... tests/url_normalizer_test.s"
 .PHONY : help
 
 

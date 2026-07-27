@@ -26,9 +26,12 @@ void SeenStore::insert(const std::string& url)
     {
         return;
     }
-
+    if(seenURLs.exists(url)){
+        duplicateCount++;
+    }
     if (!seenURLs.exists(url))
-    {
+    {   
+        uniqueCount++;
         seenURLs.set(url, true);
         urlList.append(url);
 
@@ -98,4 +101,8 @@ void SeenStore::checkpoint()
 void SeenStore::clearDisk()
 {
     std::remove(storageFile.c_str());
+}
+void SeenStore::statsCheck(){
+    std::cout<<uniqueCount<< "are the unique hits"<<std::endl;
+    std::cout<<duplicateCount<< "are the duplicate hits"<<std::endl;
 }

@@ -24,7 +24,7 @@ private:
     void buildIndex();
 
 public:
-    PageStorage(const std::string& path = "storage/pages.txt");
+    PageStorage(const std::string& path = "../storage/pages.txt");
 
     void storePage(const std::string& url,
                    const std::string& html,

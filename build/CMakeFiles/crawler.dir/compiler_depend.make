@@ -1124,7 +1124,6 @@ CMakeFiles/crawler.dir/src/seenStore.cpp.o: /mnt/c/Users/naman/OneDrive/Attachme
   /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient/include/hashmap.h \
   /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient/include/linkedList.h \
   /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/seenStore.h \
-  /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient/include/hashmap.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
   /usr/include/asm-generic/errno-base.h \
@@ -1142,6 +1141,7 @@ CMakeFiles/crawler.dir/src/seenStore.cpp.o: /mnt/c/Users/naman/OneDrive/Attachme
   /usr/include/c++/15/bits/basic_string.tcc \
   /usr/include/c++/15/bits/char_traits.h \
   /usr/include/c++/15/bits/charconv.h \
+  /usr/include/c++/15/bits/codecvt.h \
   /usr/include/c++/15/bits/concept_check.h \
   /usr/include/c++/15/bits/cpp_type_traits.h \
   /usr/include/c++/15/bits/cxxabi_forced.h \
@@ -1149,6 +1149,7 @@ CMakeFiles/crawler.dir/src/seenStore.cpp.o: /mnt/c/Users/naman/OneDrive/Attachme
   /usr/include/c++/15/bits/exception.h \
   /usr/include/c++/15/bits/exception_defines.h \
   /usr/include/c++/15/bits/exception_ptr.h \
+  /usr/include/c++/15/bits/fstream.tcc \
   /usr/include/c++/15/bits/functexcept.h \
   /usr/include/c++/15/bits/functional_hash.h \
   /usr/include/c++/15/bits/hash_bytes.h \
@@ -1210,6 +1211,7 @@ CMakeFiles/crawler.dir/src/seenStore.cpp.o: /mnt/c/Users/naman/OneDrive/Attachme
   /usr/include/c++/15/ext/numeric_traits.h \
   /usr/include/c++/15/ext/string_conversions.h \
   /usr/include/c++/15/ext/type_traits.h \
+  /usr/include/c++/15/fstream \
   /usr/include/c++/15/initializer_list \
   /usr/include/c++/15/ios \
   /usr/include/c++/15/iosfwd \
@@ -1316,8 +1318,10 @@ CMakeFiles/crawler.dir/src/seenStore.cpp.o: /mnt/c/Users/naman/OneDrive/Attachme
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/c++/15/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/15/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/15/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/15/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/15/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/15/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/15/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/15/bits/ctype_base.h \
@@ -1487,6 +1491,108 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
   /usr/lib/gcc/x86_64-linux-gnu/15/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/15/include/stddef.h
 
+crawler: /lib64/ld-linux-x86-64.so.2 \
+  /usr/lib/x86_64-linux-gnu/Scrt1.o \
+  /usr/lib/x86_64-linux-gnu/crti.o \
+  /usr/lib/x86_64-linux-gnu/crtn.o \
+  /usr/lib/x86_64-linux-gnu/libc.so \
+  /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 \
+  /usr/lib/x86_64-linux-gnu/libm.so \
+  /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o \
+  /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o \
+  /usr/lib/gcc/x86_64-linux-gnu/15/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/15/libgcc_s.so \
+  /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so \
+  /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1 \
+  /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1 \
+  /usr/lib/x86_64-linux-gnu/libc.so.6 \
+  /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
+  /usr/lib/x86_64-linux-gnu/libcom_err.so.2 \
+  /usr/lib/x86_64-linux-gnu/libcrypto.so.3 \
+  /usr/lib/x86_64-linux-gnu/libcurl.so \
+  /usr/lib/x86_64-linux-gnu/libffi.so.8 \
+  /usr/lib/x86_64-linux-gnu/libgmp.so.10 \
+  /usr/lib/x86_64-linux-gnu/libgnutls.so.30 \
+  /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2 \
+  /usr/lib/x86_64-linux-gnu/libhogweed.so.6 \
+  /usr/lib/x86_64-linux-gnu/libidn2.so.0 \
+  /usr/lib/x86_64-linux-gnu/libk5crypto.so.3 \
+  /usr/lib/x86_64-linux-gnu/libkeyutils.so.1 \
+  /usr/lib/x86_64-linux-gnu/libkrb5.so.3 \
+  /usr/lib/x86_64-linux-gnu/libkrb5support.so.0 \
+  /usr/lib/x86_64-linux-gnu/liblber.so.2 \
+  /usr/lib/x86_64-linux-gnu/libldap.so.2 \
+  /usr/lib/x86_64-linux-gnu/libm.so.6 \
+  /usr/lib/x86_64-linux-gnu/libmvec.so.1 \
+  /usr/lib/x86_64-linux-gnu/libnettle.so.8 \
+  /usr/lib/x86_64-linux-gnu/libnghttp2.so.14 \
+  /usr/lib/x86_64-linux-gnu/libp11-kit.so.0 \
+  /usr/lib/x86_64-linux-gnu/libpsl.so.5 \
+  /usr/lib/x86_64-linux-gnu/libresolv.so.2 \
+  /usr/lib/x86_64-linux-gnu/librtmp.so.1 \
+  /usr/lib/x86_64-linux-gnu/libsasl2.so.2 \
+  /usr/lib/x86_64-linux-gnu/libssh2.so.1 \
+  /usr/lib/x86_64-linux-gnu/libssl.so.3 \
+  /usr/lib/x86_64-linux-gnu/libtasn1.so.6 \
+  /usr/lib/x86_64-linux-gnu/libunistring.so.5 \
+  /usr/lib/x86_64-linux-gnu/libz.so.1 \
+  /usr/lib/x86_64-linux-gnu/libzstd.so.1 \
+  CMakeFiles/crawler.dir/main.cpp.o \
+  CMakeFiles/crawler.dir/src/crawler.cpp.o \
+  CMakeFiles/crawler.dir/src/fetcher.cpp.o \
+  CMakeFiles/crawler.dir/src/frontier.cpp.o \
+  CMakeFiles/crawler.dir/src/pageStore.cpp.o \
+  CMakeFiles/crawler.dir/src/seenStore.cpp.o \
+  CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o
+
+
+CMakeFiles/crawler.dir/src/seenStore.cpp.o:
+
+CMakeFiles/crawler.dir/src/pageStore.cpp.o:
+
+CMakeFiles/crawler.dir/src/crawler.cpp.o:
+
+/usr/lib/x86_64-linux-gnu/libz.so.1:
+
+/usr/lib/x86_64-linux-gnu/libtasn1.so.6:
+
+/usr/lib/x86_64-linux-gnu/libssh2.so.1:
+
+/usr/lib/x86_64-linux-gnu/libsasl2.so.2:
+
+/usr/lib/x86_64-linux-gnu/libpsl.so.5:
+
+/usr/lib/x86_64-linux-gnu/libp11-kit.so.0:
+
+/usr/lib/x86_64-linux-gnu/libkrb5.so.3:
+
+/usr/lib/x86_64-linux-gnu/libk5crypto.so.3:
+
+/usr/lib/x86_64-linux-gnu/libgnutls.so.30:
+
+/usr/lib/x86_64-linux-gnu/libffi.so.8:
+
+/usr/lib/x86_64-linux-gnu/libcrypto.so.3:
+
+/usr/lib/x86_64-linux-gnu/libcom_err.so.2:
+
+/usr/lib/x86_64-linux-gnu/libc_nonshared.a:
+
+/usr/lib/x86_64-linux-gnu/libc.so.6:
+
+/usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/libgcc.a:
+
+/usr/lib/x86_64-linux-gnu/libgcc_s.so.1:
+
+/usr/lib/x86_64-linux-gnu/libc.so:
+
+/usr/lib/x86_64-linux-gnu/crti.o:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so:
+
+/lib64/ld-linux-x86-64.so.2:
 
 /usr/include/c++/15/pstl/execution_defs.h:
 
@@ -1496,9 +1602,15 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/c++/15/bits/stl_algo.h:
 
+/usr/lib/x86_64-linux-gnu/libgmp.so.10:
+
 /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/urlNormalizer.cpp:
 
+CMakeFiles/crawler.dir/src/fetcher.cpp.o:
+
 /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/seenStore.cpp:
+
+/usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/c++io.h:
 
@@ -1538,7 +1650,11 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/stdio.h:
 
+/usr/lib/x86_64-linux-gnu/libldap.so.2:
+
 /usr/include/locale.h:
+
+/usr/lib/x86_64-linux-gnu/libunistring.so.5:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
@@ -1553,6 +1669,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 /usr/include/features-time64.h:
 
 /usr/include/c++/15/system_error:
+
+/usr/lib/x86_64-linux-gnu/libnettle.so.8:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
@@ -1594,6 +1712,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/c++/15/cwchar:
 
+/usr/lib/x86_64-linux-gnu/libbrotlidec.so.1:
+
 /usr/include/c++/15/bits/stl_function.h:
 
 /usr/include/string.h:
@@ -1632,6 +1752,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/wctype.h:
 
+/usr/lib/x86_64-linux-gnu/libresolv.so.2:
+
 /usr/include/c++/15/bits/ostream_insert.h:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
@@ -1656,6 +1778,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/c++/15/bits/exception_defines.h:
 
+/usr/lib/x86_64-linux-gnu/librtmp.so.1:
+
 /usr/include/c++/15/bits/predefined_ops.h:
 
 /usr/include/x86_64-linux-gnu/curl/easy.h:
@@ -1678,6 +1802,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/c++/15/bits/uses_allocator.h:
 
+/usr/lib/x86_64-linux-gnu/libidn2.so.0:
+
 /usr/include/x86_64-linux-gnu/c++/15/bits/gthr.h:
 
 /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/fetcher.cpp:
@@ -1694,9 +1820,13 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/c++/15/bits/cxxabi_forced.h:
 
+CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o:
+
 /usr/include/ctype.h:
 
 /usr/include/c++/15/bits/locale_facets.tcc:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o:
 
 /usr/include/c++/15/bits/range_access.h:
 
@@ -1736,9 +1866,13 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/c++/15/streambuf:
 
+/usr/lib/x86_64-linux-gnu/libssl.so.3:
+
 /usr/include/c++/15/bits/cpp_type_traits.h:
 
 /usr/include/c++/15/bits/cxxabi_init_exception.h:
+
+/usr/lib/x86_64-linux-gnu/libmvec.so.1:
 
 /usr/include/c++/15/bits/stl_iterator_base_types.h:
 
@@ -1762,15 +1896,23 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/c++/15/utility:
 
+/usr/lib/x86_64-linux-gnu/libm.so:
+
 /usr/include/asm-generic/int-ll64.h:
 
 /usr/include/c++/15/bits/fstream.tcc:
 
 /usr/include/c++/15/bits/memoryfwd.h:
 
+/usr/lib/x86_64-linux-gnu/libkrb5support.so.0:
+
 /usr/include/c++/15/bits/basic_ios.tcc:
 
+/usr/lib/x86_64-linux-gnu/libcurl.so:
+
 /usr/include/pthread.h:
+
+/usr/lib/x86_64-linux-gnu/libkeyutils.so.1:
 
 /usr/include/linux/stddef.h:
 
@@ -1820,6 +1962,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/c++/15/ext/string_conversions.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o:
+
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
 /usr/include/c++/15/bits/streambuf.tcc:
@@ -1852,6 +1996,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/c++/15/typeinfo:
 
+/usr/lib/x86_64-linux-gnu/libzstd.so.1:
+
 /usr/include/c++/15/bits/std_abs.h:
 
 /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/fetcher.h:
@@ -1880,6 +2026,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/c++/15/ratio:
 
+/usr/lib/x86_64-linux-gnu/libm.so.6:
+
 /usr/include/c++/15/bits/basic_ios.h:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
@@ -1903,6 +2051,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/lib/x86_64-linux-gnu/libhogweed.so.6:
 
 /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient/src/hashmap.tpp:
 
@@ -1930,6 +2080,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
+/usr/lib/x86_64-linux-gnu/liblber.so.2:
+
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
@@ -1938,15 +2090,21 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/seenStore.h:
 
+CMakeFiles/crawler.dir/main.cpp.o:
+
 /usr/include/c++/15/bits/codecvt.h:
 
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/lib/x86_64-linux-gnu/libnghttp2.so.14:
 
 /usr/include/c++/15/bits/functexcept.h:
 
 /usr/include/c++/15/bits/stl_vector.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
+
+CMakeFiles/crawler.dir/src/frontier.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
@@ -1986,6 +2144,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
+/usr/lib/x86_64-linux-gnu/crtn.o:
+
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
@@ -2024,6 +2184,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 
 /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/crawler.h:
 
+/usr/lib/x86_64-linux-gnu/Scrt1.o:
+
 /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/pageStore.h:
 
 /usr/include/c++/15/bits/unique_ptr.h:
@@ -2061,6 +2223,8 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Atta
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
 /usr/include/x86_64-linux-gnu/asm/sockios.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/libgcc_s.so:
 
 /usr/include/c++/15/bits/ptr_traits.h:
 

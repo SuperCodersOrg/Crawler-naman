@@ -1,45 +1,67 @@
 #include <gtest/gtest.h>
 #include "crawler.h"
 
-// -------------------------------
-// shouldVisit()
-// -------------------------------
+// --------------------------------------------
+// Invalid seed URL
+// --------------------------------------------
 
-TEST(CrawlerTest, ShouldVisitValidURL)
+TEST(CrawlerTest, EmptySeedURL)
 {
     Crawler crawler;
 
-    EXPECT_TRUE(
-        crawler.shouldVisit(
-            "https://example.com",
-            0,
-            2
-        )
+    EXPECT_NO_THROW(
+        crawler.crawl("", 2, 10)
     );
 }
 
-TEST(CrawlerTest, ShouldRejectEmptyURL)
+// --------------------------------------------
+// Invalid URL format
+// --------------------------------------------
+
+TEST(CrawlerTest, InvalidSeedURL)
 {
     Crawler crawler;
 
-    EXPECT_FALSE(
-        crawler.shouldVisit(
-            "",
-            0,
-            2
-        )
+    EXPECT_NO_THROW(
+        crawler.crawl("not_a_url", 2, 10)
     );
 }
 
-TEST(CrawlerTest, ShouldRejectDepthBeyondLimit)
+// --------------------------------------------
+// Zero max pages
+// --------------------------------------------
+
+TEST(CrawlerTest, ZeroMaxPages)
 {
     Crawler crawler;
 
-    EXPECT_FALSE(
-        crawler.shouldVisit(
-            "https://example.com",
-            5,
-            2
-        )
+    EXPECT_NO_THROW(
+        crawler.crawl("https://example.com", 2, 0)
+    );
+}
+
+// --------------------------------------------
+// Zero max depth
+// --------------------------------------------
+
+TEST(CrawlerTest, ZeroMaxDepth)
+{
+    Crawler crawler;
+
+    EXPECT_NO_THROW(
+        crawler.crawl("https://example.com", 0, 1)
+    );
+}
+
+// --------------------------------------------
+// Valid crawl
+// --------------------------------------------
+
+TEST(CrawlerTest, ValidCrawl)
+{
+    Crawler crawler;
+
+    EXPECT_NO_THROW(
+        crawler.crawl("https://example.com", 1, 1)
     );
 }

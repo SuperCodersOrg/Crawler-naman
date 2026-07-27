@@ -11,6 +11,7 @@ class SeenStore
 private:
     HashMap<std::string, bool> seenURLs;
     DynamicArray<std::string> urlList;
+    int uniqueCount, duplicateCount;
 
     // Persistence
     std::string storageFile;
@@ -29,6 +30,7 @@ public:
     void insert(const std::string& url);
 
     int count();
+    void statsCheck();
 
     // Force writing the current SeenStore to disk.
     void checkpoint();
