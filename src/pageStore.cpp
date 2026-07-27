@@ -48,9 +48,9 @@ void PageStorage::buildIndex()
         int id = std::stoi(idLine.substr(3));
         std::string url = urlLine.substr(4);
 
-        while (pageURLs.size() < id)
+        while (pageURLs.getSize() < id)
         {
-            pageURLs.push_back("");
+            pageURLs.append("");
         }
 
         pageURLs[id - 1] = url;
@@ -89,11 +89,11 @@ void PageStorage::storePage(const std::string& url,
 
     bool alreadyExists = pageIndex.exists(url);
 
-    int id;
+    int id = -1;
 
     if (alreadyExists)
     {
-        for (int i = 0; i < pageURLs.size(); i++)
+        for (int i = 0; i < pageURLs.getSize(); i++)
         {
             if (pageURLs[i] == url)
             {
@@ -106,7 +106,8 @@ void PageStorage::storePage(const std::string& url,
     {
         id = cachedCount + 1;
         cachedCount++;
-        pageURLs.push_back(url);
+
+        pageURLs.append(url);
     }
 
     std::ofstream output(filePath, std::ios::app);
@@ -172,7 +173,7 @@ std::string PageStorage::getPage(const std::string& url)
 
 std::string PageStorage::getURLByID(int id)
 {
-    if (id < 1 || id > pageURLs.size())
+    if (id < 1 || id > pageURLs.getSize())
         return "";
 
     return pageURLs[id - 1];

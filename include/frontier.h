@@ -15,6 +15,17 @@ class Frontier
 private:
     Queue<URLDepth> queue;
 
+    // Persistence
+    std::string storageFile;
+    int dirtyEntries;
+    static const int FLUSH_LIMIT = 100;
+    int dirtyChanges;
+
+    void loadFromDisk();
+    void flushToDisk();
+    
+    
+
 public:
     Frontier();
     Frontier(const Frontier& other);
@@ -31,6 +42,8 @@ public:
     bool empty() const;
 
     int size();
+    void checkpoint();
+    void clearDisk();
 };
 
 #endif

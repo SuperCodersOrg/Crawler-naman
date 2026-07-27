@@ -1,58 +1,66 @@
 #include <iostream>
-
-#include "crawler.h"
-#include "pageStore.h"
+#include "frontier.h"
 
 int main()
 {
-    std::cout << "===== Starting Crawler =====\n\n";
-
-    Crawler crawler;
-
-    crawler.crawl(
-        "https://quotes.toscrape.com/",
-        2,      // Maximum depth
-        10      // Maximum pages
-    );
-
-    std::cout << "\n===== Crawl Finished =====\n\n";
-
-    PageStorage storage("../storage/pages.txt");
-
-    std::cout << "Total Pages Stored : "
-              << storage.pageCount()
-              << "\n\n";
-
-    std::string url =
-        "https://quotes.toscrape.com/";
-
-    if (storage.hasPage(url))
     {
-        std::cout << "Seed page found.\n\n";
+        std::cout << "========== First Run ==========\n";
 
-        std::string html = storage.getPage(url);
+        Frontier frontier;
 
-        std::cout << "HTML Size : "
-                  << html.size()
-                  << "\n\n";
+        frontier.push({"https://google.com", 0});
+        frontier.push({"https://github.com", 1});
+        frontier.push({"https://stackoverflow.com", 2});
 
-        std::cout << "First 500 characters:\n\n";
+        std::cout << "Queue Size : " << frontier.size() << "\n";
 
-        if (html.size() > 500)
+        std::cout << "Front : "
+                  << frontier.front().url
+                  << " "
+                  << frontier.front().depth
+                  << "\n";
+
+        std::cout << "Popped : "
+                  << frontier.pop().url
+                  << "\n";
+
+        std::cout << "Remaining Size : "
+                  << frontier.size()
+                  << "\n";
+
+        // Force persistence
+        for (int i = 0; i < 100; i++)
         {
-            std::cout << html.substr(0, 500);
-        }
-        else
-        {
-            std::cout << html;
+            frontier.push({"https://example.com/" + std::to_string(i), i});
+            frontier.pop();
         }
 
-        std::cout << "\n";
+        std::cout << "Checkpoint written.\n";
     }
-    else
+
+    std::cout << "\n========== Simulating Restart ==========\n";
+
     {
-        std::cout << "Seed page not found!\n";
+        Frontier frontier;
+
+        std::cout << "Recovered Queue Size : "
+                  << frontier.size()
+                  << "\n";
+
+        while (!frontier.empty())
+        {
+            URLDepth page = frontier.pop();
+
+            std::cout << page.url
+                      << " "
+                      << page.depth
+                      << "\n";
+        }
+
+        frontier.clearDisk();
     }
+
+    std::cout << "\nPersistence file deleted.\n";
 
     return 0;
 }
