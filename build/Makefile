@@ -389,6 +389,30 @@ src/urlNormalizer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/urlNormalizer.cpp.s
 .PHONY : src/urlNormalizer.cpp.s
 
+src/wordNormalizer.o: src/wordNormalizer.cpp.o
+.PHONY : src/wordNormalizer.o
+
+# target to build an object file
+src/wordNormalizer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/wordNormalizer.cpp.o
+.PHONY : src/wordNormalizer.cpp.o
+
+src/wordNormalizer.i: src/wordNormalizer.cpp.i
+.PHONY : src/wordNormalizer.i
+
+# target to preprocess a source file
+src/wordNormalizer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/wordNormalizer.cpp.i
+.PHONY : src/wordNormalizer.cpp.i
+
+src/wordNormalizer.s: src/wordNormalizer.cpp.s
+.PHONY : src/wordNormalizer.s
+
+# target to generate assembly for a file
+src/wordNormalizer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/wordNormalizer.cpp.s
+.PHONY : src/wordNormalizer.cpp.s
+
 tests/crawler_test.o: tests/crawler_test.cpp.o
 .PHONY : tests/crawler_test.o
 
@@ -571,6 +595,9 @@ help:
 	@echo "... src/urlNormalizer.o"
 	@echo "... src/urlNormalizer.i"
 	@echo "... src/urlNormalizer.s"
+	@echo "... src/wordNormalizer.o"
+	@echo "... src/wordNormalizer.i"
+	@echo "... src/wordNormalizer.s"
 	@echo "... tests/crawler_test.o"
 	@echo "... tests/crawler_test.i"
 	@echo "... tests/crawler_test.s"

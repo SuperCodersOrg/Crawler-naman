@@ -18,6 +18,7 @@ add_executable(crawler
     src/crawler.cpp
     src/htmlParser.cpp
     src/tokenizer.cpp
+    src/wordNormalizer.cpp
 )
 
 target_include_directories(crawler PRIVATE

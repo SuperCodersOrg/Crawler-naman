@@ -161,6 +161,4 @@ CMakeFiles/crawler.dir/main.cpp.o: \
  /usr/include/c++/15/bits/basic_ios.tcc \
  /usr/include/c++/15/bits/ostream.tcc /usr/include/c++/15/istream \
  /usr/include/c++/15/bits/istream.tcc \
- /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/tokenizer.h \
- /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/../CodeQuotient/include/dynamicArray.h \
- /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/../CodeQuotient/src/dynamicArray.tpp
+ /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/include/wordNormalizer.h

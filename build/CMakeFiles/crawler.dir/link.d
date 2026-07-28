@@ -11,6 +11,7 @@ crawler: \
   CMakeFiles/crawler.dir/src/crawler.cpp.o \
   CMakeFiles/crawler.dir/src/htmlParser.cpp.o \
   CMakeFiles/crawler.dir/src/tokenizer.cpp.o \
+  CMakeFiles/crawler.dir/src/wordNormalizer.cpp.o \
   /usr/lib/x86_64-linux-gnu/libcurl.so \
   /usr/lib/x86_64-linux-gnu/libcurl.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so \
@@ -94,6 +95,8 @@ CMakeFiles/crawler.dir/src/crawler.cpp.o:
 CMakeFiles/crawler.dir/src/htmlParser.cpp.o:
 
 CMakeFiles/crawler.dir/src/tokenizer.cpp.o:
+
+CMakeFiles/crawler.dir/src/wordNormalizer.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libcurl.so:
 

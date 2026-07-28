@@ -18,6 +18,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/crawler.dir/src/tokenizer.cpp.o.d"
   "CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o"
   "CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o.d"
+  "CMakeFiles/crawler.dir/src/wordNormalizer.cpp.o"
+  "CMakeFiles/crawler.dir/src/wordNormalizer.cpp.o.d"
   "crawler"
   "crawler.pdb"
 )
