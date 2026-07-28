@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/crawler.dir/src/fetcher.cpp.o.d"
   "CMakeFiles/crawler.dir/src/frontier.cpp.o"
   "CMakeFiles/crawler.dir/src/frontier.cpp.o.d"
+  "CMakeFiles/crawler.dir/src/htmlParser.cpp.o"
+  "CMakeFiles/crawler.dir/src/htmlParser.cpp.o.d"
   "CMakeFiles/crawler.dir/src/pageStore.cpp.o"
   "CMakeFiles/crawler.dir/src/pageStore.cpp.o.d"
   "CMakeFiles/crawler.dir/src/seenStore.cpp.o"

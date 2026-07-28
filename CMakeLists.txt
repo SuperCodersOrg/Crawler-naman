@@ -16,6 +16,7 @@ add_executable(crawler
     src/seenStore.cpp
     src/urlNormalizer.cpp
     src/crawler.cpp
+    src/htmlParser.cpp
 )
 
 target_include_directories(crawler PRIVATE
@@ -52,6 +53,8 @@ add_executable(crawler_tests
     src/seenStore.cpp
     src/urlNormalizer.cpp
     src/crawler.cpp
+    src/htmlParser.cpp
+
 )
 
 target_include_directories(crawler_tests PRIVATE

@@ -257,6 +257,33 @@ src/frontier.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/frontier.cpp.s
 .PHONY : src/frontier.cpp.s
 
+src/htmlParser.o: src/htmlParser.cpp.o
+.PHONY : src/htmlParser.o
+
+# target to build an object file
+src/htmlParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/htmlParser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/htmlParser.cpp.o
+.PHONY : src/htmlParser.cpp.o
+
+src/htmlParser.i: src/htmlParser.cpp.i
+.PHONY : src/htmlParser.i
+
+# target to preprocess a source file
+src/htmlParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/htmlParser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/htmlParser.cpp.i
+.PHONY : src/htmlParser.cpp.i
+
+src/htmlParser.s: src/htmlParser.cpp.s
+.PHONY : src/htmlParser.s
+
+# target to generate assembly for a file
+src/htmlParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/htmlParser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/htmlParser.cpp.s
+.PHONY : src/htmlParser.cpp.s
+
 src/pageStore.o: src/pageStore.cpp.o
 .PHONY : src/pageStore.o
 
@@ -505,6 +532,9 @@ help:
 	@echo "... src/frontier.o"
 	@echo "... src/frontier.i"
 	@echo "... src/frontier.s"
+	@echo "... src/htmlParser.o"
+	@echo "... src/htmlParser.i"
+	@echo "... src/htmlParser.s"
 	@echo "... src/pageStore.o"
 	@echo "... src/pageStore.i"
 	@echo "... src/pageStore.s"

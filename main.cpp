@@ -1,66 +1,44 @@
 #include <iostream>
-#include "frontier.h"
+#include <vector>
+
+#include "htmlParser.h"
 
 int main()
 {
+    HTMLParser parser;
+
+    std::vector<std::string> tests =
     {
-        std::cout << "========== First Run ==========\n";
+        "<div>Hello <b>World</b></div>",
 
-        Frontier frontier;
+        "",
 
-        frontier.push({"https://google.com", 0});
-        frontier.push({"https://github.com", 1});
-        frontier.push({"https://stackoverflow.com", 2});
+        "<script>alert('Hello');</script>",
 
-        std::cout << "Queue Size : " << frontier.size() << "\n";
+        "Hello<!-- Ignore Me -->World",
 
-        std::cout << "Front : "
-                  << frontier.front().url
-                  << " "
-                  << frontier.front().depth
-                  << "\n";
+        "<a href=\"https://google.com\">Google</a>",
 
-        std::cout << "Popped : "
-                  << frontier.pop().url
-                  << "\n";
+        "<div>Hello",
 
-        std::cout << "Remaining Size : "
-                  << frontier.size()
-                  << "\n";
+        "<style>body{color:red;}</style>Hello",
 
-        // Force persistence
-        for (int i = 0; i < 100; i++)
-        {
-            frontier.push({"https://example.com/" + std::to_string(i), i});
-            frontier.pop();
-        }
+        "<h1>Title</h1><p>This is a paragraph.</p>",
 
-        std::cout << "Checkpoint written.\n";
-    }
+        "<div><span><b>Nested</b></span> Tags</div>"
+    };
 
-    std::cout << "\n========== Simulating Restart ==========\n";
-
+    for (size_t i = 0; i < tests.size(); i++)
     {
-        Frontier frontier;
+        std::cout << "Test " << i + 1 << '\n';
+        std::cout << "Input:\n";
+        std::cout << tests[i] << "\n\n";
 
-        std::cout << "Recovered Queue Size : "
-                  << frontier.size()
-                  << "\n";
+        std::cout << "Output:\n";
+        std::cout << parser.extractText(tests[i]) << "\n";
 
-        while (!frontier.empty())
-        {
-            URLDepth page = frontier.pop();
-
-            std::cout << page.url
-                      << " "
-                      << page.depth
-                      << "\n";
-        }
-
-        frontier.clearDisk();
+        std::cout << "----------------------------------------\n";
     }
-
-    std::cout << "\nPersistence file deleted.\n";
 
     return 0;
 }

@@ -8,63 +8,116 @@
 
 std::string HTMLParser::extractText(const std::string& html)
 {
+    // Stores the extracted visible text.
     std::string output;
 
+    // Current position while scanning the HTML document.
     size_t i = 0;
 
     while (i < html.length())
     {
-        // Skip HTML comments
+        //-----------------------------------------------------
+        // Ignore HTML comments.
+        //-----------------------------------------------------
         if (startsWithTag(html, i, "<!--"))
         {
+            // Comments separate surrounding text.
+            appendCharacter(output, ' ');
+
             i = skipComment(html, i);
             continue;
         }
 
-        // Skip <script>...</script>
+        //-----------------------------------------------------
+        // Ignore everything inside <script> ... </script>.
+        //-----------------------------------------------------
         if (startsWithTag(html, i, "<script"))
         {
+            // Find the end of the opening script tag.
             size_t tagEnd = html.find('>', i);
 
+            // Malformed HTML.
             if (tagEnd == std::string::npos)
                 break;
 
-            i = skipUntilClosingTag(html, tagEnd + 1, "</script>");
+            // Skip the complete script block.
+            i = skipUntilClosingTag(html,
+                                    tagEnd + 1,
+                                    "</script>");
+
             continue;
         }
 
-        // Skip <style>...</style>
+        //-----------------------------------------------------
+        // Ignore everything inside <style> ... </style>.
+        //-----------------------------------------------------
         if (startsWithTag(html, i, "<style"))
         {
+            // Find the end of the opening style tag.
             size_t tagEnd = html.find('>', i);
 
+            // Malformed HTML.
             if (tagEnd == std::string::npos)
                 break;
 
-            i = skipUntilClosingTag(html, tagEnd + 1, "</style>");
+            // Skip the complete style block.
+            i = skipUntilClosingTag(html,
+                                    tagEnd + 1,
+                                    "</style>");
+
             continue;
         }
 
-        // Skip normal HTML tags
+        //-----------------------------------------------------
+        // Skip all remaining HTML tags.
+        //-----------------------------------------------------
         if (html[i] == '<')
         {
             size_t tagEnd = html.find('>', i);
 
+            // Malformed HTML.
             if (tagEnd == std::string::npos)
                 break;
 
+            // Replace every tag with a single space so that
+            // words from adjacent tags do not merge together.
             appendCharacter(output, ' ');
+
             i = tagEnd + 1;
             continue;
         }
 
+        //-----------------------------------------------------
+        // Copy visible characters.
+        //-----------------------------------------------------
         appendCharacter(output, html[i]);
+
         i++;
     }
 
-    // Remove trailing whitespace
+    //---------------------------------------------------------
+    // Remove leading whitespace.
+    //---------------------------------------------------------
+    size_t start = 0;
+
+    while (start < output.length() &&
+           std::isspace(
+               static_cast<unsigned char>(output[start])))
+    {
+        start++;
+    }
+
+    if (start > 0)
+    {
+        output.erase(0, start);
+    }
+
+    //---------------------------------------------------------
+    // Remove trailing whitespace.
+    //---------------------------------------------------------
     while (!output.empty() &&
-           std::isspace(static_cast<unsigned char>(output.back())))
+           std::isspace(
+               static_cast<unsigned char>(output.back())))
     {
         output.pop_back();
     }
