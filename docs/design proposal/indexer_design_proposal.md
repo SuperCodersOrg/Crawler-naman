@@ -30,7 +30,7 @@ None.
 
 # Section 2 — Internal Representation
 
-![Working of Indexer](../images/indexer_working_diagram.png)
+![Working of Indexer](../images/indexer_diagram.png)
 
 The Indexer acts as the coordinator of the indexing pipeline. It does not perform text processing itself; instead, it invokes the appropriate component at each stage of the pipeline and forwards the results to the next stage.
 
@@ -104,24 +104,6 @@ The Indexer performs the following sequence of operations internally:
 6. Store each `(word, page)` pair using Index Storage.
 7. Repeat for every stored webpage.
 8. Save the completed inverted index.
-
-The overall processing pipeline is shown below:
-
-```text
-Page Storage
-      │
-      ▼
-HTML Parser
-      │
-      ▼
-Tokenizer
-      │
-      ▼
-Word Normalizer
-      │
-      ▼
-Index Storage
-```
 
 ---
 
