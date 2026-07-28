@@ -31,8 +31,6 @@ Converts an input token into its normalized representation by removing unnecessa
 
 # Section 2 — Internal Representation
 
-![Working of Word Normalizer](../images/word_normalizer_working_diagram.png)
-
 The Word Normalizer is designed as a lightweight text-processing component that standardizes individual words before they are inserted into the inverted index. It processes one token at a time and performs a fixed sequence of normalization operations.
 
 Unlike the Tokenizer, which identifies word boundaries, the Word Normalizer modifies the token itself to produce a consistent representation.
