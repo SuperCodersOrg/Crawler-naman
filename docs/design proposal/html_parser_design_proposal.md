@@ -1,6 +1,6 @@
 # HTML Parser
 
-The **HTML Parser** is responsible for extracting the visible textual content from an HTML document. It removes HTML tags, ignores non-visible elements such as scripts and styles, and returns plain text that can be further processed by the Indexer.
+The **HTML Parser** is responsible for extracting the visible textual content from an HTML document. It removes HTML tags, ignores non-visible elements such as scripts, styles, and comments, normalizes whitespace, and returns plain text that can be further processed by the Indexer.
 
 The Parser does not download webpages, tokenize text, normalize words, or build indexes. Its sole responsibility is to transform raw HTML into readable text.
 
@@ -33,55 +33,70 @@ Extracts the visible text from an HTML document by removing HTML tags and non-vi
 
 ![Working of HTML Parser](../images/html_parser_flowchart.png)
 
-The HTML Parser is designed as a lightweight text-processing component. It scans the HTML document character by character, identifies HTML tags, ignores non-visible sections, and copies only visible text into the output buffer.
+The HTML Parser is designed as a lightweight, stateless text-processing component. It scans the HTML document sequentially, detects HTML tags, skips non-visible content, collapses unnecessary whitespace, and copies only visible text into the output string.
 
-Unlike a web browser, the Parser does not attempt to interpret CSS, execute JavaScript, or build a Document Object Model (DOM). It simply extracts readable text.
+Unlike a web browser, the Parser does not execute JavaScript, interpret CSS, or construct a Document Object Model (DOM). It simply extracts readable text suitable for indexing.
 
-## Private Data Members
+## Private Helper Methods
 
-### 1. std::string outputBuffer
+### 1. startsWithTag()
 
 ```cpp
-std::string outputBuffer;
+bool startsWithTag(const std::string& html,
+                   size_t pos,
+                   const std::string& tag) const;
 ```
 
-The `outputBuffer` temporarily stores the visible text extracted from the HTML document.
+Checks whether the current parsing position begins with a specified HTML tag.
 
-Characters outside HTML tags are appended to this buffer until the entire document has been processed.
+This helper is used to detect elements such as:
 
-The buffer is cleared before every parsing operation.
+- `<script>`
+- `<style>`
+- `<!--`
 
 ---
 
-### 2. bool insideTag
+### 2. skipUntilClosingTag()
 
 ```cpp
-bool insideTag;
+size_t skipUntilClosingTag(const std::string& html,
+                           size_t pos,
+                           const std::string& closingTag) const;
 ```
 
-The `insideTag` flag indicates whether the parser is currently processing an HTML tag.
+Skips all characters until the specified closing tag is encountered.
 
-- `true` indicates characters between `<` and `>`.
-- `false` indicates visible webpage content.
-
-Only characters encountered while `insideTag` is `false` are copied into the output buffer.
-
----
-
-### 3. bool ignoreContent
-
-```cpp
-bool ignoreContent;
-```
-
-The `ignoreContent` flag is used to skip sections that should not contribute to searchable text.
-
-Examples include:
+This function is primarily used for ignoring:
 
 - `<script> ... </script>`
 - `<style> ... </style>`
 
-Characters inside these sections are ignored until the corresponding closing tag is encountered.
+---
+
+### 3. skipComment()
+
+```cpp
+size_t skipComment(const std::string& html,
+                   size_t pos) const;
+```
+
+Skips HTML comments beginning with `<!--` and ending with `-->`.
+
+Comment contents are excluded from the extracted text.
+
+---
+
+### 4. appendCharacter()
+
+```cpp
+void appendCharacter(std::string& output,
+                     char ch) const;
+```
+
+Appends characters to the output while normalizing whitespace.
+
+This helper ensures that multiple spaces, tabs, and newline characters are collapsed into a single space, producing clean plain text.
 
 ---
 
@@ -91,13 +106,16 @@ The Parser performs the following sequence of operations internally:
 
 1. Receive the raw HTML document.
 2. Scan the document from beginning to end.
-3. Detect opening and closing HTML tags.
-4. Skip all HTML tags.
-5. Ignore text inside script and style sections.
-6. Copy visible characters into the output buffer.
-7. Return the extracted plain text.
+3. Detect HTML tags.
+4. Skip HTML tags.
+5. Ignore `<script>` sections.
+6. Ignore `<style>` sections.
+7. Ignore HTML comments.
+8. Copy visible characters into the output.
+9. Normalize consecutive whitespace.
+10. Return the extracted plain text.
 
-The parser processes the document sequentially and requires only a single pass over the HTML.
+The parser processes the document sequentially and requires only a single pass over the HTML document.
 
 ---
 
@@ -108,6 +126,10 @@ The Parser is designed to tolerate malformed HTML whenever possible.
 If the input HTML string is empty, the Parser immediately returns an empty string.
 
 If malformed or incomplete HTML tags are encountered, the parser continues scanning the remaining document instead of terminating.
+
+If a closing `</script>` or `</style>` tag cannot be found, the remaining portion of that section is ignored.
+
+Malformed HTML comments are skipped until the end of the document.
 
 If no visible text is found after processing the document, an empty string is returned.
 
@@ -125,16 +147,19 @@ where **n** is the number of characters in the HTML document.
 
 ### Explanation
 
-- Each character is examined exactly once.
-- Detecting HTML tags requires constant-time operations.
+- Each character is examined at most once.
+- Tag detection requires constant-time comparisons.
+- Script, style, and comment sections are skipped efficiently.
 - Visible characters are appended directly to the output buffer.
-- Therefore, the running time grows linearly with the size of the HTML document.
+- Whitespace normalization is performed during extraction.
+
+Therefore, the running time grows linearly with the size of the HTML document.
 
 **Space Complexity:** **O(n)**
 
 where **n** is the size of the extracted plain text.
 
-The parser stores only the resulting text while processing the document.
+The parser stores only the generated plain text while processing the document.
 
 ---
 
@@ -145,9 +170,10 @@ The HTML Parser has been designed as an independent preprocessing component that
 Future versions may support:
 
 - HTML entity decoding (`&amp;`, `&lt;`, `&gt;`, etc.)
+- Unicode-aware parsing
 - Extraction of page titles and metadata
 - Ignoring additional non-visible HTML elements
-- Unicode character handling
 - Preservation of paragraph and sentence boundaries
+- HTML5-specific parsing rules
 
-Since the Parser provides a simple plain-text interface, these enhancements can be implemented while preserving the existing public API.
+Since the Parser exposes a simple plain-text interface, these enhancements can be implemented while preserving the existing public API.
