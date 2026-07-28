@@ -1,6 +1,6 @@
 # Word Normalizer
 
-The **Word Normalizer** is responsible for converting individual tokens into a standardized form before they are inserted into the inverted index. It receives one token at a time from the Tokenizer, converts alphabetic characters to lowercase, removes unnecessary punctuation, and returns the normalized word.
+The **Word Normalizer** is responsible for converting individual tokens into a standardized form before they are inserted into the inverted index. It receives one token at a time from the Tokenizer, converts alphabetic characters to lowercase, removes unnecessary punctuation, filters stop words, and returns the normalized word.
 
 The Word Normalizer does not split text into words, parse HTML, or build indexes. Its sole responsibility is to ensure that equivalent words are represented in a consistent format.
 
@@ -16,7 +16,7 @@ std::string normalize(const std::string& word);
 
 ### Purpose
 
-Converts an input token into its normalized representation by removing unnecessary punctuation and converting alphabetic characters to lowercase.
+Converts an input token into its normalized representation by converting alphabetic characters to lowercase, removing unnecessary punctuation, and filtering stop words.
 
 ### Parameters
 
@@ -25,29 +25,77 @@ Converts an input token into its normalized representation by removing unnecessa
 ### Returns
 
 - A normalized `std::string`.
-- An empty string if the token contains no valid alphabetic or numeric characters after normalization.
+- An empty string if the token becomes empty after normalization or is identified as a stop word.
 
 ---
 
 # Section 2 — Internal Representation
 
-The Word Normalizer is designed as a lightweight text-processing component that standardizes individual words before they are inserted into the inverted index. It processes one token at a time and performs a fixed sequence of normalization operations.
+The Word Normalizer is designed as a lightweight, stateless text-processing component that standardizes individual words before they are inserted into the inverted index. It processes one token at a time by performing a fixed sequence of normalization operations.
 
 Unlike the Tokenizer, which identifies word boundaries, the Word Normalizer modifies the token itself to produce a consistent representation.
 
-## Private Data Members
+## Private Helper Methods
 
-### 1. std::string normalizedWord
+### 1. toLowerCase()
 
 ```cpp
-std::string normalizedWord;
+std::string toLowerCase(const std::string& word) const;
 ```
 
-The `normalizedWord` buffer temporarily stores the processed version of the input token.
+### Purpose
 
-Each normalization step updates this buffer until the final normalized word is produced.
+Converts all alphabetic characters in the input token to lowercase while leaving non-alphabetic characters unchanged.
 
-The buffer is cleared before processing every new token.
+---
+
+### 2. trimPunctuation()
+
+```cpp
+std::string trimPunctuation(const std::string& word) const;
+```
+
+### Purpose
+
+Removes punctuation characters from the beginning and end of the token while preserving the remaining characters.
+
+This allows tokens such as:
+
+```text
+hello,
+```
+
+to become
+
+```text
+hello
+```
+
+and
+
+```text
+(world)
+```
+
+to become
+
+```text
+world
+```
+
+---
+
+### 3. isStopWord()
+
+```cpp
+bool isStopWord(const std::string& word) const;
+```
+
+### Purpose
+
+Determines whether the normalized token is a stop word that should be ignored during indexing.
+
+If the token is identified as a stop word, the normalizer returns an empty string so that the Indexer can safely ignore it.
 
 ---
 
@@ -60,7 +108,8 @@ The Word Normalizer performs the following sequence of operations internally:
 3. Remove leading punctuation characters.
 4. Remove trailing punctuation characters.
 5. Check whether the resulting token is empty.
-6. Return the normalized word.
+6. Determine whether the token is a stop word.
+7. Return the normalized token or an empty string.
 
 Each token is processed independently, allowing the component to remain stateless between normalization operations.
 
@@ -68,15 +117,17 @@ Each token is processed independently, allowing the component to remain stateles
 
 # Section 3 — Failure Handling
 
-The Word Normalizer is designed to handle invalid or empty tokens gracefully.
+The Word Normalizer is designed to handle empty, whitespace-only, punctuation-only, and stop-word tokens gracefully.
 
 If the input token is empty, the component immediately returns an empty string.
 
 If a token consists entirely of punctuation characters, all punctuation is removed and an empty string is returned.
 
-Tokens containing only whitespace are treated as invalid and also result in an empty string.
+Tokens containing only whitespace characters are treated as empty and also result in an empty string.
 
-Returning an empty string allows the Indexer to ignore invalid tokens without interrupting the indexing process.
+If the normalized token is identified as a stop word, an empty string is returned so that the Indexer can ignore it without interrupting the indexing process.
+
+Returning an empty string provides a simple mechanism for filtering unwanted tokens while allowing the indexing pipeline to continue processing normally.
 
 ---
 
@@ -90,15 +141,16 @@ where **n** is the length of the input token.
 
 ### Explanation
 
-- Each character is examined at most once while converting to lowercase.
+- Every alphabetic character is examined once during lowercase conversion.
 - Leading and trailing punctuation are removed by scanning the token from both ends.
-- The total running time therefore grows linearly with the length of the token.
+- Stop-word detection performs a comparison against a fixed collection of common stop words.
+- Therefore, the overall running time grows linearly with the length of the input token.
 
 **Space Complexity:** **O(n)**
 
 where **n** is the length of the normalized token.
 
-The component stores only the normalized representation of the current token.
+The component stores only the normalized representation of the current token before returning it.
 
 ---
 
@@ -108,11 +160,11 @@ The Word Normalizer has been designed as an independent preprocessing component 
 
 Future versions may support:
 
-- Stop-word removal (e.g., *the*, *is*, *of*)
 - Stemming (e.g., *running* → *run*)
 - Lemmatization (e.g., *better* → *good*)
 - Unicode-aware case conversion
 - Language-specific normalization rules
+- Configurable stop-word dictionaries
 - Preservation of selected punctuation for programming terms such as **C++**, **C#**, or **Node.js**
 
 Since the component returns a single normalized token, these improvements can be implemented while remaining fully compatible with the Tokenizer and the Indexer.
