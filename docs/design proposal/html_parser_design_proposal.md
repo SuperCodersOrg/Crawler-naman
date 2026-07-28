@@ -31,7 +31,7 @@ Extracts the visible text from an HTML document by removing HTML tags and non-vi
 
 # Section 2 — Internal Representation
 
-![Working of HTML Parser](../images/html_parser_working_diagram.png)
+![Working of HTML Parser](../images/html_parser_flowchart.png)
 
 The HTML Parser is designed as a lightweight text-processing component. It scans the HTML document character by character, identifies HTML tags, ignores non-visible sections, and copies only visible text into the output buffer.
 
