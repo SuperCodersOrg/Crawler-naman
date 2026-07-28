@@ -338,6 +338,30 @@ src/seenStore.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/seenStore.cpp.s
 .PHONY : src/seenStore.cpp.s
 
+src/tokenizer.o: src/tokenizer.cpp.o
+.PHONY : src/tokenizer.o
+
+# target to build an object file
+src/tokenizer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/tokenizer.cpp.o
+.PHONY : src/tokenizer.cpp.o
+
+src/tokenizer.i: src/tokenizer.cpp.i
+.PHONY : src/tokenizer.i
+
+# target to preprocess a source file
+src/tokenizer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/tokenizer.cpp.i
+.PHONY : src/tokenizer.cpp.i
+
+src/tokenizer.s: src/tokenizer.cpp.s
+.PHONY : src/tokenizer.s
+
+# target to generate assembly for a file
+src/tokenizer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/tokenizer.cpp.s
+.PHONY : src/tokenizer.cpp.s
+
 src/urlNormalizer.o: src/urlNormalizer.cpp.o
 .PHONY : src/urlNormalizer.o
 
@@ -541,6 +565,9 @@ help:
 	@echo "... src/seenStore.o"
 	@echo "... src/seenStore.i"
 	@echo "... src/seenStore.s"
+	@echo "... src/tokenizer.o"
+	@echo "... src/tokenizer.i"
+	@echo "... src/tokenizer.s"
 	@echo "... src/urlNormalizer.o"
 	@echo "... src/urlNormalizer.i"
 	@echo "... src/urlNormalizer.s"

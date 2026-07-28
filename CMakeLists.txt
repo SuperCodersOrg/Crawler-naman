@@ -17,6 +17,7 @@ add_executable(crawler
     src/urlNormalizer.cpp
     src/crawler.cpp
     src/htmlParser.cpp
+    src/tokenizer.cpp
 )
 
 target_include_directories(crawler PRIVATE

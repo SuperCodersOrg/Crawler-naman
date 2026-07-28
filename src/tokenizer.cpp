@@ -9,6 +9,7 @@
 DynamicArray<std::string> Tokenizer::tokenize(
     const std::string& text)
 {
+    // Stores all extracted tokens.
     DynamicArray<std::string> tokens;
 
     // Stores the token currently being built.
@@ -41,9 +42,10 @@ void Tokenizer::addToken(
     DynamicArray<std::string>& tokens,
     std::string& currentToken) const
 {
+    // Ignore empty tokens produced by multiple spaces.
     if (!currentToken.empty())
     {
-        tokens.push_back(currentToken);
+        tokens.append(currentToken);
         currentToken.clear();
     }
 }

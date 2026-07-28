@@ -14,6 +14,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/crawler.dir/src/pageStore.cpp.o.d"
   "CMakeFiles/crawler.dir/src/seenStore.cpp.o"
   "CMakeFiles/crawler.dir/src/seenStore.cpp.o.d"
+  "CMakeFiles/crawler.dir/src/tokenizer.cpp.o"
+  "CMakeFiles/crawler.dir/src/tokenizer.cpp.o.d"
   "CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o"
   "CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o.d"
   "crawler"

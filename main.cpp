@@ -1,43 +1,63 @@
 #include <iostream>
-#include <vector>
+#include <string>
 
-#include "htmlParser.h"
+#include "tokenizer.h"
+
+void printTokens(const DynamicArray<std::string>& tokens)
+{
+    std::cout << "Number of Tokens: " << tokens.getSize() << "\n";
+
+    for (int i = 0; i < tokens.getSize(); i++)
+    {
+        std::cout << "[" << i << "] "
+                  << "\"" << tokens[i] << "\"\n";
+    }
+}
 
 int main()
 {
-    HTMLParser parser;
+    Tokenizer tokenizer;
 
-    std::vector<std::string> tests =
+    std::string tests[] =
     {
-        "<div>Hello <b>World</b></div>",
+        "Hello World",
+
+        "   Hello     World   ",
+
+        "This is a tokenizer test.",
+
+        "C++ is awesome!",
 
         "",
 
-        "<script>alert('Hello');</script>",
+        "OneWord",
 
-        "Hello<!-- Ignore Me -->World",
+        "Line1\nLine2\nLine3",
 
-        "<a href=\"https://google.com\">Google</a>",
+        "Word1\tWord2\t\tWord3",
 
-        "<div>Hello",
+        "Hello, World! This is GPT.",
 
-        "<style>body{color:red;}</style>Hello",
-
-        "<h1>Title</h1><p>This is a paragraph.</p>",
-
-        "<div><span><b>Nested</b></span> Tags</div>"
+        "   Multiple   spaces\tand\nnewlines   together   "
     };
 
-    for (size_t i = 0; i < tests.size(); i++)
+    int numberOfTests = sizeof(tests) / sizeof(tests[0]);
+
+    for (int i = 0; i < numberOfTests; i++)
     {
-        std::cout << "Test " << i + 1 << '\n';
+        std::cout << "=========================================\n";
+        std::cout << "Test " << i + 1 << "\n\n";
+
         std::cout << "Input:\n";
-        std::cout << tests[i] << "\n\n";
+        std::cout << "\"" << tests[i] << "\"\n\n";
+
+        DynamicArray<std::string> tokens =
+            tokenizer.tokenize(tests[i]);
 
         std::cout << "Output:\n";
-        std::cout << parser.extractText(tests[i]) << "\n";
+        printTokens(tokens);
 
-        std::cout << "----------------------------------------\n";
+        std::cout << "\n";
     }
 
     return 0;
