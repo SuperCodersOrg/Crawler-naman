@@ -67,8 +67,9 @@ void Indexer::buildIndex()
 
             indexStorage.insert(word, pageID);
         }
-        indexStorage.saveToFile("../storage/index.txt");
+        
     }
+    indexStorage.saveToFile("../storage/index.txt");
 }
 
 //---------------------------------------------------------
