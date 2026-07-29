@@ -290,6 +290,7 @@ src/indexStorage.o: src/indexStorage.cpp.o
 # target to build an object file
 src/indexStorage.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexStorage.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/indexStorage.cpp.o
 .PHONY : src/indexStorage.cpp.o
 
 src/indexStorage.i: src/indexStorage.cpp.i
@@ -298,6 +299,7 @@ src/indexStorage.i: src/indexStorage.cpp.i
 # target to preprocess a source file
 src/indexStorage.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexStorage.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/indexStorage.cpp.i
 .PHONY : src/indexStorage.cpp.i
 
 src/indexStorage.s: src/indexStorage.cpp.s
@@ -306,6 +308,7 @@ src/indexStorage.s: src/indexStorage.cpp.s
 # target to generate assembly for a file
 src/indexStorage.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexStorage.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/indexStorage.cpp.s
 .PHONY : src/indexStorage.cpp.s
 
 src/indexer.o: src/indexer.cpp.o
@@ -314,6 +317,7 @@ src/indexer.o: src/indexer.cpp.o
 # target to build an object file
 src/indexer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/indexer.cpp.o
 .PHONY : src/indexer.cpp.o
 
 src/indexer.i: src/indexer.cpp.i
@@ -322,6 +326,7 @@ src/indexer.i: src/indexer.cpp.i
 # target to preprocess a source file
 src/indexer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/indexer.cpp.i
 .PHONY : src/indexer.cpp.i
 
 src/indexer.s: src/indexer.cpp.s
@@ -330,6 +335,7 @@ src/indexer.s: src/indexer.cpp.s
 # target to generate assembly for a file
 src/indexer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/indexer.cpp.s
 .PHONY : src/indexer.cpp.s
 
 src/pageStore.o: src/pageStore.cpp.o
@@ -392,6 +398,7 @@ src/tokenizer.o: src/tokenizer.cpp.o
 # target to build an object file
 src/tokenizer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/tokenizer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/tokenizer.cpp.o
 .PHONY : src/tokenizer.cpp.o
 
 src/tokenizer.i: src/tokenizer.cpp.i
@@ -400,6 +407,7 @@ src/tokenizer.i: src/tokenizer.cpp.i
 # target to preprocess a source file
 src/tokenizer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/tokenizer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/tokenizer.cpp.i
 .PHONY : src/tokenizer.cpp.i
 
 src/tokenizer.s: src/tokenizer.cpp.s
@@ -408,6 +416,7 @@ src/tokenizer.s: src/tokenizer.cpp.s
 # target to generate assembly for a file
 src/tokenizer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/tokenizer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/tokenizer.cpp.s
 .PHONY : src/tokenizer.cpp.s
 
 src/urlNormalizer.o: src/urlNormalizer.cpp.o
@@ -443,6 +452,7 @@ src/wordNormalizer.o: src/wordNormalizer.cpp.o
 # target to build an object file
 src/wordNormalizer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/wordNormalizer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/wordNormalizer.cpp.o
 .PHONY : src/wordNormalizer.cpp.o
 
 src/wordNormalizer.i: src/wordNormalizer.cpp.i
@@ -451,6 +461,7 @@ src/wordNormalizer.i: src/wordNormalizer.cpp.i
 # target to preprocess a source file
 src/wordNormalizer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/wordNormalizer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/wordNormalizer.cpp.i
 .PHONY : src/wordNormalizer.cpp.i
 
 src/wordNormalizer.s: src/wordNormalizer.cpp.s
@@ -459,6 +470,7 @@ src/wordNormalizer.s: src/wordNormalizer.cpp.s
 # target to generate assembly for a file
 src/wordNormalizer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/wordNormalizer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/wordNormalizer.cpp.s
 .PHONY : src/wordNormalizer.cpp.s
 
 tests/crawler_test.o: tests/crawler_test.cpp.o
@@ -533,6 +545,78 @@ tests/frontier_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/frontier_test.cpp.s
 .PHONY : tests/frontier_test.cpp.s
 
+tests/html_parser_test.o: tests/html_parser_test.cpp.o
+.PHONY : tests/html_parser_test.o
+
+# target to build an object file
+tests/html_parser_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/html_parser_test.cpp.o
+.PHONY : tests/html_parser_test.cpp.o
+
+tests/html_parser_test.i: tests/html_parser_test.cpp.i
+.PHONY : tests/html_parser_test.i
+
+# target to preprocess a source file
+tests/html_parser_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/html_parser_test.cpp.i
+.PHONY : tests/html_parser_test.cpp.i
+
+tests/html_parser_test.s: tests/html_parser_test.cpp.s
+.PHONY : tests/html_parser_test.s
+
+# target to generate assembly for a file
+tests/html_parser_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/html_parser_test.cpp.s
+.PHONY : tests/html_parser_test.cpp.s
+
+tests/indexer_storage_test.o: tests/indexer_storage_test.cpp.o
+.PHONY : tests/indexer_storage_test.o
+
+# target to build an object file
+tests/indexer_storage_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/indexer_storage_test.cpp.o
+.PHONY : tests/indexer_storage_test.cpp.o
+
+tests/indexer_storage_test.i: tests/indexer_storage_test.cpp.i
+.PHONY : tests/indexer_storage_test.i
+
+# target to preprocess a source file
+tests/indexer_storage_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/indexer_storage_test.cpp.i
+.PHONY : tests/indexer_storage_test.cpp.i
+
+tests/indexer_storage_test.s: tests/indexer_storage_test.cpp.s
+.PHONY : tests/indexer_storage_test.s
+
+# target to generate assembly for a file
+tests/indexer_storage_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/indexer_storage_test.cpp.s
+.PHONY : tests/indexer_storage_test.cpp.s
+
+tests/indexer_test.o: tests/indexer_test.cpp.o
+.PHONY : tests/indexer_test.o
+
+# target to build an object file
+tests/indexer_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/indexer_test.cpp.o
+.PHONY : tests/indexer_test.cpp.o
+
+tests/indexer_test.i: tests/indexer_test.cpp.i
+.PHONY : tests/indexer_test.i
+
+# target to preprocess a source file
+tests/indexer_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/indexer_test.cpp.i
+.PHONY : tests/indexer_test.cpp.i
+
+tests/indexer_test.s: tests/indexer_test.cpp.s
+.PHONY : tests/indexer_test.s
+
+# target to generate assembly for a file
+tests/indexer_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/indexer_test.cpp.s
+.PHONY : tests/indexer_test.cpp.s
+
 tests/page_store_test.o: tests/page_store_test.cpp.o
 .PHONY : tests/page_store_test.o
 
@@ -581,6 +665,30 @@ tests/seen_store_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/seen_store_test.cpp.s
 .PHONY : tests/seen_store_test.cpp.s
 
+tests/tokenizer_test.o: tests/tokenizer_test.cpp.o
+.PHONY : tests/tokenizer_test.o
+
+# target to build an object file
+tests/tokenizer_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/tokenizer_test.cpp.o
+.PHONY : tests/tokenizer_test.cpp.o
+
+tests/tokenizer_test.i: tests/tokenizer_test.cpp.i
+.PHONY : tests/tokenizer_test.i
+
+# target to preprocess a source file
+tests/tokenizer_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/tokenizer_test.cpp.i
+.PHONY : tests/tokenizer_test.cpp.i
+
+tests/tokenizer_test.s: tests/tokenizer_test.cpp.s
+.PHONY : tests/tokenizer_test.s
+
+# target to generate assembly for a file
+tests/tokenizer_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/tokenizer_test.cpp.s
+.PHONY : tests/tokenizer_test.cpp.s
+
 tests/url_normalizer_test.o: tests/url_normalizer_test.cpp.o
 .PHONY : tests/url_normalizer_test.o
 
@@ -604,6 +712,30 @@ tests/url_normalizer_test.s: tests/url_normalizer_test.cpp.s
 tests/url_normalizer_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/url_normalizer_test.cpp.s
 .PHONY : tests/url_normalizer_test.cpp.s
+
+tests/word_normalizer_test.o: tests/word_normalizer_test.cpp.o
+.PHONY : tests/word_normalizer_test.o
+
+# target to build an object file
+tests/word_normalizer_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/word_normalizer_test.cpp.o
+.PHONY : tests/word_normalizer_test.cpp.o
+
+tests/word_normalizer_test.i: tests/word_normalizer_test.cpp.i
+.PHONY : tests/word_normalizer_test.i
+
+# target to preprocess a source file
+tests/word_normalizer_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/word_normalizer_test.cpp.i
+.PHONY : tests/word_normalizer_test.cpp.i
+
+tests/word_normalizer_test.s: tests/word_normalizer_test.cpp.s
+.PHONY : tests/word_normalizer_test.s
+
+# target to generate assembly for a file
+tests/word_normalizer_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/tests/word_normalizer_test.cpp.s
+.PHONY : tests/word_normalizer_test.cpp.s
 
 # Help Target
 help:
@@ -661,15 +793,30 @@ help:
 	@echo "... tests/frontier_test.o"
 	@echo "... tests/frontier_test.i"
 	@echo "... tests/frontier_test.s"
+	@echo "... tests/html_parser_test.o"
+	@echo "... tests/html_parser_test.i"
+	@echo "... tests/html_parser_test.s"
+	@echo "... tests/indexer_storage_test.o"
+	@echo "... tests/indexer_storage_test.i"
+	@echo "... tests/indexer_storage_test.s"
+	@echo "... tests/indexer_test.o"
+	@echo "... tests/indexer_test.i"
+	@echo "... tests/indexer_test.s"
 	@echo "... tests/page_store_test.o"
 	@echo "... tests/page_store_test.i"
 	@echo "... tests/page_store_test.s"
 	@echo "... tests/seen_store_test.o"
 	@echo "... tests/seen_store_test.i"
 	@echo "... tests/seen_store_test.s"
+	@echo "... tests/tokenizer_test.o"
+	@echo "... tests/tokenizer_test.i"
+	@echo "... tests/tokenizer_test.s"
 	@echo "... tests/url_normalizer_test.o"
 	@echo "... tests/url_normalizer_test.i"
 	@echo "... tests/url_normalizer_test.s"
+	@echo "... tests/word_normalizer_test.o"
+	@echo "... tests/word_normalizer_test.i"
+	@echo "... tests/word_normalizer_test.s"
 .PHONY : help
 
 

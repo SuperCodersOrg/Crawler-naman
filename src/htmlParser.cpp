@@ -33,6 +33,7 @@ std::string HTMLParser::extractText(const std::string& html)
         //-----------------------------------------------------
         if (startsWithTag(html, i, "<script"))
         {
+            appendCharacter(output, ' ');
             // Find the end of the opening script tag.
             size_t tagEnd = html.find('>', i);
 
@@ -53,6 +54,7 @@ std::string HTMLParser::extractText(const std::string& html)
         //-----------------------------------------------------
         if (startsWithTag(html, i, "<style"))
         {
+            appendCharacter(output, ' ');
             // Find the end of the opening style tag.
             size_t tagEnd = html.find('>', i);
 

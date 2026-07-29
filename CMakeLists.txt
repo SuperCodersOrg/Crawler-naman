@@ -39,28 +39,34 @@ target_link_libraries(crawler PRIVATE CURL::libcurl)
 
 find_package(GTest REQUIRED)
 
-# ===========================
-# Test executable
-# ===========================
-
 enable_testing()
 
 add_executable(crawler_tests
+    # Test Files
     tests/frontier_test.cpp
     tests/page_store_test.cpp
     tests/seen_store_test.cpp
     tests/url_normalizer_test.cpp
     tests/fetcher_test.cpp
     tests/crawler_test.cpp
+    tests/html_parser_test.cpp
+    tests/tokenizer_test.cpp
+    tests/word_normalizer_test.cpp
+    tests/indexer_storage_test.cpp
+    tests/indexer_test.cpp
 
-    src/fetcher.cpp
+    # Source Files
     src/frontier.cpp
     src/pageStore.cpp
     src/seenStore.cpp
     src/urlNormalizer.cpp
+    src/fetcher.cpp
     src/crawler.cpp
     src/htmlParser.cpp
-
+    src/tokenizer.cpp
+    src/wordNormalizer.cpp
+    src/indexStorage.cpp
+    src/indexer.cpp
 )
 
 target_include_directories(crawler_tests PRIVATE
