@@ -2,6 +2,8 @@
 
 The **Indexer** is the core component of the indexing subsystem. It is responsible for building the inverted index by processing all webpages stored by the crawler. The Indexer coordinates the complete indexing pipeline by retrieving stored pages, extracting visible text, tokenizing the text, normalizing the generated tokens, and forwarding the processed words to the Index Storage.
 
+After the complete inverted index has been constructed, the Indexer instructs the Index Storage to persist the index to disk so that it can be reused without rebuilding it in future executions.
+
 The Indexer does not fetch webpages or answer search queries. Its sole responsibility is to coordinate the indexing process and construct the inverted index.
 
 ---
@@ -16,7 +18,7 @@ void buildIndex();
 
 ### Purpose
 
-Processes all stored webpages and builds the complete inverted index.
+Processes all stored webpages, builds the complete inverted index, and persists the completed index using the Index Storage component.
 
 ### Parameters
 
@@ -46,7 +48,7 @@ PageStorage& pageStorage;
 
 Provides access to all webpages previously stored by the crawler.
 
-The Indexer retrieves each webpage sequentially from this component.
+The Indexer retrieves each stored webpage sequentially from this component.
 
 ---
 
@@ -78,17 +80,21 @@ WordNormalizer normalizer;
 
 Converts every token into its normalized representation.
 
+Invalid tokens such as punctuation-only tokens or numeric-only tokens are discarded during normalization.
+
 ---
 
-### 5. IndexStorage indexStorage
+### 5. IndexStorage& indexStorage
 
 ```cpp
-IndexStorage indexStorage;
+IndexStorage& indexStorage;
 ```
 
-Stores the mapping between normalized words and webpage URLs.
+Stores the mapping between normalized words and webpage IDs.
 
-The Indexer forwards every valid `(word, page)` pair to this component.
+Each normalized word is associated with one or more page IDs representing the webpages in which the word appears. The corresponding webpage URL and HTML content can later be retrieved from `PageStorage` using the page ID.
+
+After indexing is complete, the Index Storage persists the inverted index to disk.
 
 ---
 
@@ -100,10 +106,10 @@ The Indexer performs the following sequence of operations internally:
 2. Extract visible text using the HTML Parser.
 3. Tokenize the extracted text.
 4. Normalize every generated token.
-5. Ignore empty normalized tokens.
-6. Store each `(word, page)` pair using Index Storage.
-7. Repeat for every stored webpage.
-8. Save the completed inverted index.
+5. Discard empty or invalid normalized tokens.
+6. Store each `(word, pageID)` pair using Index Storage.
+7. Repeat the process for every stored webpage.
+8. Persist the completed inverted index to disk.
 
 ---
 
@@ -111,13 +117,15 @@ The Indexer performs the following sequence of operations internally:
 
 The Indexer is designed to continue processing even if an individual webpage cannot be indexed.
 
-If a webpage cannot be read from Page Storage, the Indexer skips that page and continues with the remaining webpages.
+If a webpage cannot be read from Page Storage, the Indexer skips that page and continues processing the remaining webpages.
 
 If the HTML Parser produces no visible text, the webpage is ignored.
 
 If the Tokenizer generates no tokens, the webpage contributes no entries to the inverted index.
 
-Empty tokens returned by the Word Normalizer are discarded automatically.
+Empty or invalid tokens returned by the Word Normalizer are discarded automatically.
+
+If the Index Storage cannot persist the completed inverted index to disk, the indexing process itself still completes successfully in memory. Persistence failure does not interrupt the processing of webpages.
 
 Failures encountered while processing one webpage do not interrupt the indexing of other webpages.
 
@@ -127,8 +135,9 @@ Failures encountered while processing one webpage do not interrupt the indexing 
 
 Assume:
 
-- **P** = Number of webpages
-- **T** = Total number of tokens across all webpages
+* **P** = Number of webpages
+* **T** = Total number of tokens across all webpages
+* **U** = Number of unique normalized words
 
 ## buildIndex()
 
@@ -140,7 +149,7 @@ Each webpage is processed exactly once.
 
 Every character is parsed once, every token is generated once, every token is normalized once, and every valid token is inserted into the inverted index once.
 
-Since each stage performs linear processing, the total running time is proportional to the total number of tokens processed.
+After indexing, the completed inverted index is written to disk in a single sequential pass. This persistence step is linear in the size of the index and does not change the overall asymptotic complexity of the indexing process.
 
 **Space Complexity:** **O(U)**
 
@@ -154,15 +163,3 @@ Apart from the inverted index itself, the Indexer maintains only temporary data 
 
 The Indexer has been designed as an orchestration component that coordinates the complete indexing pipeline. Since each stage of processing is delegated to an independent component, new preprocessing or indexing techniques can be integrated without modifying the overall workflow.
 
-Future versions may support:
-
-- Incremental indexing of newly crawled pages
-- Multi-threaded page processing
-- Stop-word filtering
-- Stemming and lemmatization
-- Term frequency (TF) computation
-- Positional indexes for phrase searching
-- TF-IDF weight generation
-- Parallel index construction
-
-Because the Indexer depends only on the public interfaces of the processing components, these enhancements can be incorporated while preserving the existing architecture.
