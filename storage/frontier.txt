@@ -1,1 +1,7 @@
-https://iana.org/domains/example 1
+https://iana.org/about/organization 2
+https://iana.org/archive 2
+https://iana.org/contact 2
+https://pti.icann.org/ 2
+https://www.icann.org/ 2
+https://www.icann.org/privacy/policy 2
+https://www.icann.org/privacy/tos 2

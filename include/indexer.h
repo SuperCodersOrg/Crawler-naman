@@ -10,16 +10,20 @@
 class Indexer
 {
 public:
-    // Builds the inverted index from all stored pages.
+    Indexer(PageStorage& pageStorage,
+            IndexStorage& indexStorage);
+    bool isNumber(const std::string& word);
+
     void buildIndex();
 
+    IndexStorage& getIndexStorage();
+
 private:
-    // Components used during indexing.
-    PageStorage pageStorage;
+    PageStorage& pageStorage;
+    IndexStorage& indexStorage;
+
     HTMLParser htmlParser;
     Tokenizer tokenizer;
     WordNormalizer wordNormalizer;
-    IndexStorage indexStorage;
 };
-
 #endif

@@ -7,19 +7,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(CURL REQUIRED)
 
+# Main executable
 add_executable(crawler
     main.cpp
 
+    src/crawler.cpp
     src/fetcher.cpp
     src/frontier.cpp
     src/pageStore.cpp
     src/seenStore.cpp
     src/urlNormalizer.cpp
-    src/crawler.cpp
     src/htmlParser.cpp
     src/tokenizer.cpp
     src/wordNormalizer.cpp
+    src/indexStorage.cpp
+    src/indexer.cpp
 )
+
 
 target_include_directories(crawler PRIVATE
     ${PROJECT_SOURCE_DIR}/include

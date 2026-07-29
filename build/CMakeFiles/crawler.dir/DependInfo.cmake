@@ -13,6 +13,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/fetcher.cpp" "CMakeFiles/crawler.dir/src/fetcher.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/fetcher.cpp.o.d"
   "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/frontier.cpp" "CMakeFiles/crawler.dir/src/frontier.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/frontier.cpp.o.d"
   "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/htmlParser.cpp" "CMakeFiles/crawler.dir/src/htmlParser.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/htmlParser.cpp.o.d"
+  "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/indexStorage.cpp" "CMakeFiles/crawler.dir/src/indexStorage.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/indexStorage.cpp.o.d"
+  "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/indexer.cpp" "CMakeFiles/crawler.dir/src/indexer.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/indexer.cpp.o.d"
   "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/pageStore.cpp" "CMakeFiles/crawler.dir/src/pageStore.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/pageStore.cpp.o.d"
   "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/seenStore.cpp" "CMakeFiles/crawler.dir/src/seenStore.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/seenStore.cpp.o.d"
   "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/tokenizer.cpp" "CMakeFiles/crawler.dir/src/tokenizer.cpp.o" "gcc" "CMakeFiles/crawler.dir/src/tokenizer.cpp.o.d"

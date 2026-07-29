@@ -3,15 +3,17 @@ crawler: \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o \
   CMakeFiles/crawler.dir/main.cpp.o \
+  CMakeFiles/crawler.dir/src/crawler.cpp.o \
   CMakeFiles/crawler.dir/src/fetcher.cpp.o \
   CMakeFiles/crawler.dir/src/frontier.cpp.o \
   CMakeFiles/crawler.dir/src/pageStore.cpp.o \
   CMakeFiles/crawler.dir/src/seenStore.cpp.o \
   CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o \
-  CMakeFiles/crawler.dir/src/crawler.cpp.o \
   CMakeFiles/crawler.dir/src/htmlParser.cpp.o \
   CMakeFiles/crawler.dir/src/tokenizer.cpp.o \
   CMakeFiles/crawler.dir/src/wordNormalizer.cpp.o \
+  CMakeFiles/crawler.dir/src/indexStorage.cpp.o \
+  CMakeFiles/crawler.dir/src/indexer.cpp.o \
   /usr/lib/x86_64-linux-gnu/libcurl.so \
   /usr/lib/x86_64-linux-gnu/libcurl.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so \
@@ -80,6 +82,8 @@ crawler: \
 
 CMakeFiles/crawler.dir/main.cpp.o:
 
+CMakeFiles/crawler.dir/src/crawler.cpp.o:
+
 CMakeFiles/crawler.dir/src/fetcher.cpp.o:
 
 CMakeFiles/crawler.dir/src/frontier.cpp.o:
@@ -90,13 +94,15 @@ CMakeFiles/crawler.dir/src/seenStore.cpp.o:
 
 CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o:
 
-CMakeFiles/crawler.dir/src/crawler.cpp.o:
-
 CMakeFiles/crawler.dir/src/htmlParser.cpp.o:
 
 CMakeFiles/crawler.dir/src/tokenizer.cpp.o:
 
 CMakeFiles/crawler.dir/src/wordNormalizer.cpp.o:
+
+CMakeFiles/crawler.dir/src/indexStorage.cpp.o:
+
+CMakeFiles/crawler.dir/src/indexer.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libcurl.so:
 

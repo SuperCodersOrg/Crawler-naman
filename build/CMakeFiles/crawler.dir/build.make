@@ -86,10 +86,24 @@ CMakeFiles/crawler.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crawler.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/main.cpp" -o CMakeFiles/crawler.dir/main.cpp.s
 
+CMakeFiles/crawler.dir/src/crawler.cpp.o: CMakeFiles/crawler.dir/flags.make
+CMakeFiles/crawler.dir/src/crawler.cpp.o: /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/crawler.cpp
+CMakeFiles/crawler.dir/src/crawler.cpp.o: CMakeFiles/crawler.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/crawler.dir/src/crawler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/crawler.dir/src/crawler.cpp.o -MF CMakeFiles/crawler.dir/src/crawler.cpp.o.d -o CMakeFiles/crawler.dir/src/crawler.cpp.o -c "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/crawler.cpp"
+
+CMakeFiles/crawler.dir/src/crawler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/crawler.dir/src/crawler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/crawler.cpp" > CMakeFiles/crawler.dir/src/crawler.cpp.i
+
+CMakeFiles/crawler.dir/src/crawler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crawler.dir/src/crawler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/crawler.cpp" -o CMakeFiles/crawler.dir/src/crawler.cpp.s
+
 CMakeFiles/crawler.dir/src/fetcher.cpp.o: CMakeFiles/crawler.dir/flags.make
 CMakeFiles/crawler.dir/src/fetcher.cpp.o: /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/fetcher.cpp
 CMakeFiles/crawler.dir/src/fetcher.cpp.o: CMakeFiles/crawler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/crawler.dir/src/fetcher.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/crawler.dir/src/fetcher.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/crawler.dir/src/fetcher.cpp.o -MF CMakeFiles/crawler.dir/src/fetcher.cpp.o.d -o CMakeFiles/crawler.dir/src/fetcher.cpp.o -c "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/fetcher.cpp"
 
 CMakeFiles/crawler.dir/src/fetcher.cpp.i: cmake_force
@@ -103,7 +117,7 @@ CMakeFiles/crawler.dir/src/fetcher.cpp.s: cmake_force
 CMakeFiles/crawler.dir/src/frontier.cpp.o: CMakeFiles/crawler.dir/flags.make
 CMakeFiles/crawler.dir/src/frontier.cpp.o: /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/frontier.cpp
 CMakeFiles/crawler.dir/src/frontier.cpp.o: CMakeFiles/crawler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/crawler.dir/src/frontier.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/crawler.dir/src/frontier.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/crawler.dir/src/frontier.cpp.o -MF CMakeFiles/crawler.dir/src/frontier.cpp.o.d -o CMakeFiles/crawler.dir/src/frontier.cpp.o -c "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/frontier.cpp"
 
 CMakeFiles/crawler.dir/src/frontier.cpp.i: cmake_force
@@ -117,7 +131,7 @@ CMakeFiles/crawler.dir/src/frontier.cpp.s: cmake_force
 CMakeFiles/crawler.dir/src/pageStore.cpp.o: CMakeFiles/crawler.dir/flags.make
 CMakeFiles/crawler.dir/src/pageStore.cpp.o: /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/pageStore.cpp
 CMakeFiles/crawler.dir/src/pageStore.cpp.o: CMakeFiles/crawler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/crawler.dir/src/pageStore.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/crawler.dir/src/pageStore.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/crawler.dir/src/pageStore.cpp.o -MF CMakeFiles/crawler.dir/src/pageStore.cpp.o.d -o CMakeFiles/crawler.dir/src/pageStore.cpp.o -c "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/pageStore.cpp"
 
 CMakeFiles/crawler.dir/src/pageStore.cpp.i: cmake_force
@@ -131,7 +145,7 @@ CMakeFiles/crawler.dir/src/pageStore.cpp.s: cmake_force
 CMakeFiles/crawler.dir/src/seenStore.cpp.o: CMakeFiles/crawler.dir/flags.make
 CMakeFiles/crawler.dir/src/seenStore.cpp.o: /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/seenStore.cpp
 CMakeFiles/crawler.dir/src/seenStore.cpp.o: CMakeFiles/crawler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/crawler.dir/src/seenStore.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/crawler.dir/src/seenStore.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/crawler.dir/src/seenStore.cpp.o -MF CMakeFiles/crawler.dir/src/seenStore.cpp.o.d -o CMakeFiles/crawler.dir/src/seenStore.cpp.o -c "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/seenStore.cpp"
 
 CMakeFiles/crawler.dir/src/seenStore.cpp.i: cmake_force
@@ -145,7 +159,7 @@ CMakeFiles/crawler.dir/src/seenStore.cpp.s: cmake_force
 CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: CMakeFiles/crawler.dir/flags.make
 CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/urlNormalizer.cpp
 CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o: CMakeFiles/crawler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o -MF CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o.d -o CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o -c "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/urlNormalizer.cpp"
 
 CMakeFiles/crawler.dir/src/urlNormalizer.cpp.i: cmake_force
@@ -155,20 +169,6 @@ CMakeFiles/crawler.dir/src/urlNormalizer.cpp.i: cmake_force
 CMakeFiles/crawler.dir/src/urlNormalizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crawler.dir/src/urlNormalizer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/urlNormalizer.cpp" -o CMakeFiles/crawler.dir/src/urlNormalizer.cpp.s
-
-CMakeFiles/crawler.dir/src/crawler.cpp.o: CMakeFiles/crawler.dir/flags.make
-CMakeFiles/crawler.dir/src/crawler.cpp.o: /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/crawler.cpp
-CMakeFiles/crawler.dir/src/crawler.cpp.o: CMakeFiles/crawler.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/crawler.dir/src/crawler.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/crawler.dir/src/crawler.cpp.o -MF CMakeFiles/crawler.dir/src/crawler.cpp.o.d -o CMakeFiles/crawler.dir/src/crawler.cpp.o -c "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/crawler.cpp"
-
-CMakeFiles/crawler.dir/src/crawler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/crawler.dir/src/crawler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/crawler.cpp" > CMakeFiles/crawler.dir/src/crawler.cpp.i
-
-CMakeFiles/crawler.dir/src/crawler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crawler.dir/src/crawler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/crawler.cpp" -o CMakeFiles/crawler.dir/src/crawler.cpp.s
 
 CMakeFiles/crawler.dir/src/htmlParser.cpp.o: CMakeFiles/crawler.dir/flags.make
 CMakeFiles/crawler.dir/src/htmlParser.cpp.o: /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/htmlParser.cpp
@@ -212,38 +212,70 @@ CMakeFiles/crawler.dir/src/wordNormalizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crawler.dir/src/wordNormalizer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/wordNormalizer.cpp" -o CMakeFiles/crawler.dir/src/wordNormalizer.cpp.s
 
+CMakeFiles/crawler.dir/src/indexStorage.cpp.o: CMakeFiles/crawler.dir/flags.make
+CMakeFiles/crawler.dir/src/indexStorage.cpp.o: /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/indexStorage.cpp
+CMakeFiles/crawler.dir/src/indexStorage.cpp.o: CMakeFiles/crawler.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/crawler.dir/src/indexStorage.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/crawler.dir/src/indexStorage.cpp.o -MF CMakeFiles/crawler.dir/src/indexStorage.cpp.o.d -o CMakeFiles/crawler.dir/src/indexStorage.cpp.o -c "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/indexStorage.cpp"
+
+CMakeFiles/crawler.dir/src/indexStorage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/crawler.dir/src/indexStorage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/indexStorage.cpp" > CMakeFiles/crawler.dir/src/indexStorage.cpp.i
+
+CMakeFiles/crawler.dir/src/indexStorage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crawler.dir/src/indexStorage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/indexStorage.cpp" -o CMakeFiles/crawler.dir/src/indexStorage.cpp.s
+
+CMakeFiles/crawler.dir/src/indexer.cpp.o: CMakeFiles/crawler.dir/flags.make
+CMakeFiles/crawler.dir/src/indexer.cpp.o: /mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient\ Project\ 2/src/indexer.cpp
+CMakeFiles/crawler.dir/src/indexer.cpp.o: CMakeFiles/crawler.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/crawler.dir/src/indexer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/crawler.dir/src/indexer.cpp.o -MF CMakeFiles/crawler.dir/src/indexer.cpp.o.d -o CMakeFiles/crawler.dir/src/indexer.cpp.o -c "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/indexer.cpp"
+
+CMakeFiles/crawler.dir/src/indexer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/crawler.dir/src/indexer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/indexer.cpp" > CMakeFiles/crawler.dir/src/indexer.cpp.i
+
+CMakeFiles/crawler.dir/src/indexer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/crawler.dir/src/indexer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/src/indexer.cpp" -o CMakeFiles/crawler.dir/src/indexer.cpp.s
+
 # Object files for target crawler
 crawler_OBJECTS = \
 "CMakeFiles/crawler.dir/main.cpp.o" \
+"CMakeFiles/crawler.dir/src/crawler.cpp.o" \
 "CMakeFiles/crawler.dir/src/fetcher.cpp.o" \
 "CMakeFiles/crawler.dir/src/frontier.cpp.o" \
 "CMakeFiles/crawler.dir/src/pageStore.cpp.o" \
 "CMakeFiles/crawler.dir/src/seenStore.cpp.o" \
 "CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o" \
-"CMakeFiles/crawler.dir/src/crawler.cpp.o" \
 "CMakeFiles/crawler.dir/src/htmlParser.cpp.o" \
 "CMakeFiles/crawler.dir/src/tokenizer.cpp.o" \
-"CMakeFiles/crawler.dir/src/wordNormalizer.cpp.o"
+"CMakeFiles/crawler.dir/src/wordNormalizer.cpp.o" \
+"CMakeFiles/crawler.dir/src/indexStorage.cpp.o" \
+"CMakeFiles/crawler.dir/src/indexer.cpp.o"
 
 # External object files for target crawler
 crawler_EXTERNAL_OBJECTS =
 
 crawler: CMakeFiles/crawler.dir/main.cpp.o
+crawler: CMakeFiles/crawler.dir/src/crawler.cpp.o
 crawler: CMakeFiles/crawler.dir/src/fetcher.cpp.o
 crawler: CMakeFiles/crawler.dir/src/frontier.cpp.o
 crawler: CMakeFiles/crawler.dir/src/pageStore.cpp.o
 crawler: CMakeFiles/crawler.dir/src/seenStore.cpp.o
 crawler: CMakeFiles/crawler.dir/src/urlNormalizer.cpp.o
-crawler: CMakeFiles/crawler.dir/src/crawler.cpp.o
 crawler: CMakeFiles/crawler.dir/src/htmlParser.cpp.o
 crawler: CMakeFiles/crawler.dir/src/tokenizer.cpp.o
 crawler: CMakeFiles/crawler.dir/src/wordNormalizer.cpp.o
+crawler: CMakeFiles/crawler.dir/src/indexStorage.cpp.o
+crawler: CMakeFiles/crawler.dir/src/indexer.cpp.o
 crawler: CMakeFiles/crawler.dir/build.make
 crawler: CMakeFiles/crawler.dir/compiler_depend.ts
 crawler: /usr/lib/x86_64-linux-gnu/libcurl.so
 crawler: /usr/lib/x86_64-linux-gnu/libcurl.so
 crawler: CMakeFiles/crawler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable crawler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/naman/OneDrive/Attachments/Documents/Desktop/CodeQuotient Project 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable crawler"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/crawler.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

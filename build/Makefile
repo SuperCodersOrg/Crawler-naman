@@ -284,6 +284,54 @@ src/htmlParser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler_tests.dir/build.make CMakeFiles/crawler_tests.dir/src/htmlParser.cpp.s
 .PHONY : src/htmlParser.cpp.s
 
+src/indexStorage.o: src/indexStorage.cpp.o
+.PHONY : src/indexStorage.o
+
+# target to build an object file
+src/indexStorage.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexStorage.cpp.o
+.PHONY : src/indexStorage.cpp.o
+
+src/indexStorage.i: src/indexStorage.cpp.i
+.PHONY : src/indexStorage.i
+
+# target to preprocess a source file
+src/indexStorage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexStorage.cpp.i
+.PHONY : src/indexStorage.cpp.i
+
+src/indexStorage.s: src/indexStorage.cpp.s
+.PHONY : src/indexStorage.s
+
+# target to generate assembly for a file
+src/indexStorage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexStorage.cpp.s
+.PHONY : src/indexStorage.cpp.s
+
+src/indexer.o: src/indexer.cpp.o
+.PHONY : src/indexer.o
+
+# target to build an object file
+src/indexer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexer.cpp.o
+.PHONY : src/indexer.cpp.o
+
+src/indexer.i: src/indexer.cpp.i
+.PHONY : src/indexer.i
+
+# target to preprocess a source file
+src/indexer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexer.cpp.i
+.PHONY : src/indexer.cpp.i
+
+src/indexer.s: src/indexer.cpp.s
+.PHONY : src/indexer.s
+
+# target to generate assembly for a file
+src/indexer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/crawler.dir/build.make CMakeFiles/crawler.dir/src/indexer.cpp.s
+.PHONY : src/indexer.cpp.s
+
 src/pageStore.o: src/pageStore.cpp.o
 .PHONY : src/pageStore.o
 
@@ -583,6 +631,12 @@ help:
 	@echo "... src/htmlParser.o"
 	@echo "... src/htmlParser.i"
 	@echo "... src/htmlParser.s"
+	@echo "... src/indexStorage.o"
+	@echo "... src/indexStorage.i"
+	@echo "... src/indexStorage.s"
+	@echo "... src/indexer.o"
+	@echo "... src/indexer.i"
+	@echo "... src/indexer.s"
 	@echo "... src/pageStore.o"
 	@echo "... src/pageStore.i"
 	@echo "... src/pageStore.s"

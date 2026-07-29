@@ -1,85 +1,75 @@
 #include <iostream>
 #include <string>
 
-#include "wordNormalizer.h"
-
-void printResult(WordNormalizer& normalizer,
-                 const std::string& input)
-{
-    std::string output = normalizer.normalize(input);
-
-    std::cout << "Input : \"" << input << "\"\n";
-    std::cout << "Output: \"" << output << "\"\n";
-    std::cout << "----------------------------------------\n";
-}
+#include "indexer.h"
+#include "indexStorage.h"
+#include "pageStore.h"
+#include "../../CodeQuotient/include/dynamicArray.h"
 
 int main()
 {
-    WordNormalizer normalizer;
+    PageStorage pageStorage;
+    IndexStorage indexStorage;
+
+    Indexer indexer(pageStorage, indexStorage);
 
     std::cout << "=========================================\n";
-    std::cout << "Test 1 - Lowercase Conversion\n\n";
-    printResult(normalizer, "HELLO");
+    std::cout << "Building Inverted Index...\n";
+    std::cout << "=========================================\n\n";
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 2 - Mixed Case\n\n";
-    printResult(normalizer, "HeLLo");
+    // Build index from stored pages
+    indexer.buildIndex();
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 3 - Trailing Punctuation\n\n";
-    printResult(normalizer, "hello,");
+    // Save the index
+    indexStorage.saveToFile("../storage/index.txt");
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 4 - Leading Punctuation\n\n";
-    printResult(normalizer, "(world");
+    std::cout << "Index saved successfully.\n";
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 5 - Both Sides Punctuation\n\n";
-    printResult(normalizer, "\"search!\"");
+    // Clear RAM to test persistence
+    indexStorage.clear();
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 6 - Stop Word (the)\n\n";
-    printResult(normalizer, "the");
+    // Load index back from file
+    indexStorage.loadFromFile("../storage/index.txt");
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 7 - Stop Word (THE)\n\n";
-    printResult(normalizer, "THE");
+    std::cout << "Index loaded successfully.\n";
+    std::cout << "Total Pages Indexed: "
+              << pageStorage.pageCount()
+              << "\n\n";
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 8 - Stop Word (An)\n\n";
-    printResult(normalizer, "An");
+    std::string word;
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 9 - Normal Word\n\n";
-    printResult(normalizer, "Computer");
+    while (true)
+    {
+        std::cout << "Enter word to search (type 'exit' to quit): ";
+        std::cin >> word;
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 10 - Empty String\n\n";
-    printResult(normalizer, "");
+        if (word == "exit")
+        {
+            break;
+        }
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 11 - Only Punctuation\n\n";
-    printResult(normalizer, "!!!");
+        if (!indexStorage.contains(word))
+        {
+            std::cout << "Word not found.\n\n";
+            continue;
+        }
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 12 - Number\n\n";
-    printResult(normalizer, "2026");
+        DynamicArray<int> pages = indexStorage.getPages(word);
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 13 - Alphanumeric\n\n";
-    printResult(normalizer, "Version2");
+        std::cout << "\nFound in:\n";
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 14 - C++\n\n";
-    printResult(normalizer, "C++");
+        for (int i = 0; i < pages.getSize(); i++)
+        {
+            int pageID = pages[i];
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 15 - Node.js\n\n";
-    printResult(normalizer, "Node.js");
+            std::cout << "Page ID: " << pageID
+                      << " | URL: "
+                      << pageStorage.getURLByID(pageID)
+                      << "\n";
+        }
 
-    std::cout << "=========================================\n";
-    std::cout << "Test 16 - Multiple Punctuation\n\n";
-    printResult(normalizer, "...Hello!!!");
+        std::cout << "\n";
+    }
 
     return 0;
 }
